@@ -11,6 +11,56 @@ import Metal
 import MetalKit
 import simd
 
+class Game: NSObject, MTKViewDelegate {
+    
+    enum State {
+        case Idle, Running, Paused
+    }
+    
+    var state                                   : State = .Idle
+    
+    let rayView                                 : RayView
+    var scaleFactor                             : Float
+    var device                                  : MTLDevice!
+
+    var metalStates                             : MetalStates!
+    var drawables                               : MetalDrawables!
+
+    var textureLoader                           : MTKTextureLoader!
+
+    init?(view: RayView) {
+        rayView = view
+
+        #if os(OSX)
+        scaleFactor = Float(NSScreen.main!.backingScaleFactor)
+        #else
+        scaleFactor = Float(UIScreen.main.scale)
+        #endif
+        
+        super.init()
+        
+        rayView.game = self
+        metalStates = MetalStates(rayView)
+        drawables = MetalDrawables(rayView)
+
+        textureLoader = MTKTextureLoader(device: rayView.device!)
+    }
+    
+    func draw(in view: MTKView) {
+        drawables.encodeStart()
+        
+        drawables.drawBox(position: float2(100, 100), size: float2(500, 200))
+        
+        drawables.encodeEnd()
+    }
+    
+    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+        
+    }
+}
+
+/*
+
 // The 256 byte aligned size of our uniform structure
 let alignedUniformsSize = (MemoryLayout<Uniforms>.size + 0xFF) & -0x100
 
@@ -324,3 +374,4 @@ func matrix_perspective_right_hand(fovyRadians fovy: Float, aspectRatio: Float, 
 func radians_from_degrees(_ degrees: Float) -> Float {
     return (degrees / 180) * .pi
 }
+*/

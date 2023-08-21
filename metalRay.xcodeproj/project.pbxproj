@@ -18,23 +18,50 @@
 		DD4B8C462A931CFC000E06A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C452A931CFC000E06A3 /* AppDelegate.swift */; };
 		DD4B8C482A931CFC000E06A3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C472A931CFC000E06A3 /* GameViewController.swift */; };
 		DD4B8C4B2A931CFC000E06A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C492A931CFC000E06A3 /* Main.storyboard */; };
-		DD4B8C4D2A931CFC000E06A3 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */; };
-		DD4B8C4E2A931CFC000E06A3 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */; };
-		DD4B8C4F2A931CFC000E06A3 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */; };
-		DD4B8C502A931CFC000E06A3 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1B2A931CFA000E06A3 /* Renderer.swift */; };
-		DD4B8C512A931CFC000E06A3 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1B2A931CFA000E06A3 /* Renderer.swift */; };
-		DD4B8C522A931CFC000E06A3 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1B2A931CFA000E06A3 /* Renderer.swift */; };
 		DD4B8C532A931CFC000E06A3 /* ShaderTypes.h in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C1C2A931CFA000E06A3 /* ShaderTypes.h */; };
 		DD4B8C542A931CFC000E06A3 /* ShaderTypes.h in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C1C2A931CFA000E06A3 /* ShaderTypes.h */; };
 		DD4B8C552A931CFC000E06A3 /* ShaderTypes.h in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C1C2A931CFA000E06A3 /* ShaderTypes.h */; };
 		DD4B8C562A931CFC000E06A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C1D2A931CFC000E06A3 /* Assets.xcassets */; };
 		DD4B8C572A931CFC000E06A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C1D2A931CFC000E06A3 /* Assets.xcassets */; };
 		DD4B8C582A931CFC000E06A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C1D2A931CFC000E06A3 /* Assets.xcassets */; };
+		DD4B8C6B2A932583000E06A3 /* RayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C6A2A932583000E06A3 /* RayView.swift */; };
+		DD4B8C6C2A932583000E06A3 /* RayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C6A2A932583000E06A3 /* RayView.swift */; };
+		DD4B8C6D2A932583000E06A3 /* RayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C6A2A932583000E06A3 /* RayView.swift */; };
+		DD4B8C6F2A9325B2000E06A3 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C6E2A9325B2000E06A3 /* Math.swift */; };
+		DD4B8C702A9325B2000E06A3 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C6E2A9325B2000E06A3 /* Math.swift */; };
+		DD4B8C712A9325B2000E06A3 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C6E2A9325B2000E06A3 /* Math.swift */; };
+		DD4B8C762A9327BF000E06A3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1B2A931CFA000E06A3 /* Game.swift */; };
+		DD4B8C772A9327BF000E06A3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1B2A931CFA000E06A3 /* Game.swift */; };
+		DD4B8C782A9327C0000E06A3 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1B2A931CFA000E06A3 /* Game.swift */; };
+		DD4B8C792A9327C3000E06A3 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */; };
+		DD4B8C7A2A9327C3000E06A3 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */; };
+		DD4B8C7B2A9327C4000E06A3 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */; };
+		DD4B8C7D2A934BA3000E06A3 /* MetalStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C7C2A934BA3000E06A3 /* MetalStates.swift */; };
+		DD4B8C7E2A934BA3000E06A3 /* MetalStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C7C2A934BA3000E06A3 /* MetalStates.swift */; };
+		DD4B8C7F2A934BA3000E06A3 /* MetalStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C7C2A934BA3000E06A3 /* MetalStates.swift */; };
+		DD4B8C812A934CC8000E06A3 /* Metal.metal in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C802A934CC8000E06A3 /* Metal.metal */; };
+		DD4B8C822A934CC8000E06A3 /* Metal.metal in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C802A934CC8000E06A3 /* Metal.metal */; };
+		DD4B8C832A934CC8000E06A3 /* Metal.metal in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C802A934CC8000E06A3 /* Metal.metal */; };
+		DD4B8C862A934D8D000E06A3 /* MetalDrawables.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C852A934D8D000E06A3 /* MetalDrawables.swift */; };
+		DD4B8C872A934D8D000E06A3 /* MetalDrawables.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C852A934D8D000E06A3 /* MetalDrawables.swift */; };
+		DD4B8C882A934D8D000E06A3 /* MetalDrawables.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C852A934D8D000E06A3 /* MetalDrawables.swift */; };
+		DD4B8C8B2A934DE3000E06A3 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C8A2A934DE3000E06A3 /* Misc.swift */; };
+		DD4B8C8C2A934DE3000E06A3 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C8A2A934DE3000E06A3 /* Misc.swift */; };
+		DD4B8C8D2A934DE3000E06A3 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C8A2A934DE3000E06A3 /* Misc.swift */; };
+		DD4B8C8F2A934DEA000E06A3 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C8E2A934DEA000E06A3 /* Font.swift */; };
+		DD4B8C902A934DEA000E06A3 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C8E2A934DEA000E06A3 /* Font.swift */; };
+		DD4B8C912A934DEA000E06A3 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C8E2A934DEA000E06A3 /* Font.swift */; };
+		DD4B8C952A935302000E06A3 /* OpenSans.json in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C932A935302000E06A3 /* OpenSans.json */; };
+		DD4B8C962A935302000E06A3 /* OpenSans.json in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C932A935302000E06A3 /* OpenSans.json */; };
+		DD4B8C972A935302000E06A3 /* OpenSans.json in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C932A935302000E06A3 /* OpenSans.json */; };
+		DD4B8C982A935302000E06A3 /* OpenSans.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C942A935302000E06A3 /* OpenSans.tiff */; };
+		DD4B8C992A935302000E06A3 /* OpenSans.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C942A935302000E06A3 /* OpenSans.tiff */; };
+		DD4B8C9A2A935302000E06A3 /* OpenSans.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C942A935302000E06A3 /* OpenSans.tiff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
-		DD4B8C1B2A931CFA000E06A3 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		DD4B8C1B2A931CFA000E06A3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		DD4B8C1C2A931CFA000E06A3 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
 		DD4B8C1D2A931CFC000E06A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD4B8C222A931CFC000E06A3 /* metalRay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metalRay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +79,16 @@
 		DD4B8C472A931CFC000E06A3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		DD4B8C4A2A931CFC000E06A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD4B8C4C2A931CFC000E06A3 /* metalRay_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = metalRay_macOS.entitlements; sourceTree = "<group>"; };
+		DD4B8C6A2A932583000E06A3 /* RayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayView.swift; sourceTree = "<group>"; };
+		DD4B8C6E2A9325B2000E06A3 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		DD4B8C7C2A934BA3000E06A3 /* MetalStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalStates.swift; sourceTree = "<group>"; };
+		DD4B8C802A934CC8000E06A3 /* Metal.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Metal.metal; sourceTree = "<group>"; };
+		DD4B8C842A934CFD000E06A3 /* Metal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Metal.h; sourceTree = "<group>"; };
+		DD4B8C852A934D8D000E06A3 /* MetalDrawables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalDrawables.swift; sourceTree = "<group>"; };
+		DD4B8C8A2A934DE3000E06A3 /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		DD4B8C8E2A934DEA000E06A3 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		DD4B8C932A935302000E06A3 /* OpenSans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OpenSans.json; sourceTree = "<group>"; };
+		DD4B8C942A935302000E06A3 /* OpenSans.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OpenSans.tiff; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				DD4B8C192A931CFA000E06A3 /* metalRay Shared */,
+				DD4B8C442A931CFC000E06A3 /* metalRay macOS */,
 				DD4B8C242A931CFC000E06A3 /* metalRay iOS */,
 				DD4B8C342A931CFC000E06A3 /* metalRay tvOS */,
-				DD4B8C442A931CFC000E06A3 /* metalRay macOS */,
 				DD4B8C232A931CFC000E06A3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,10 +130,13 @@
 		DD4B8C192A931CFA000E06A3 /* metalRay Shared */ = {
 			isa = PBXGroup;
 			children = (
+				DD4B8C1B2A931CFA000E06A3 /* Game.swift */,
 				DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */,
-				DD4B8C1B2A931CFA000E06A3 /* Renderer.swift */,
 				DD4B8C1C2A931CFA000E06A3 /* ShaderTypes.h */,
 				DD4B8C1D2A931CFC000E06A3 /* Assets.xcassets */,
+				DD4B8C692A93256D000E06A3 /* Metal */,
+				DD4B8C892A934DB6000E06A3 /* Misc */,
+				DD4B8C922A9352CA000E06A3 /* Fonts */,
 			);
 			path = "metalRay Shared";
 			sourceTree = "<group>";
@@ -142,6 +182,37 @@
 				DD4B8C4C2A931CFC000E06A3 /* metalRay_macOS.entitlements */,
 			);
 			path = "metalRay macOS";
+			sourceTree = "<group>";
+		};
+		DD4B8C692A93256D000E06A3 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				DD4B8C802A934CC8000E06A3 /* Metal.metal */,
+				DD4B8C842A934CFD000E06A3 /* Metal.h */,
+				DD4B8C6E2A9325B2000E06A3 /* Math.swift */,
+				DD4B8C6A2A932583000E06A3 /* RayView.swift */,
+				DD4B8C7C2A934BA3000E06A3 /* MetalStates.swift */,
+				DD4B8C852A934D8D000E06A3 /* MetalDrawables.swift */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+		DD4B8C892A934DB6000E06A3 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				DD4B8C8A2A934DE3000E06A3 /* Misc.swift */,
+				DD4B8C8E2A934DEA000E06A3 /* Font.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		DD4B8C922A9352CA000E06A3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DD4B8C932A935302000E06A3 /* OpenSans.json */,
+				DD4B8C942A935302000E06A3 /* OpenSans.tiff */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,8 +316,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD4B8C532A931CFC000E06A3 /* ShaderTypes.h in Resources */,
+				DD4B8C982A935302000E06A3 /* OpenSans.tiff in Resources */,
 				DD4B8C2B2A931CFC000E06A3 /* Main.storyboard in Resources */,
 				DD4B8C562A931CFC000E06A3 /* Assets.xcassets in Resources */,
+				DD4B8C952A935302000E06A3 /* OpenSans.json in Resources */,
 				DD4B8C2E2A931CFC000E06A3 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,8 +329,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD4B8C542A931CFC000E06A3 /* ShaderTypes.h in Resources */,
+				DD4B8C992A935302000E06A3 /* OpenSans.tiff in Resources */,
 				DD4B8C3B2A931CFC000E06A3 /* Main.storyboard in Resources */,
 				DD4B8C572A931CFC000E06A3 /* Assets.xcassets in Resources */,
+				DD4B8C962A935302000E06A3 /* OpenSans.json in Resources */,
 				DD4B8C3E2A931CFC000E06A3 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +341,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD4B8C9A2A935302000E06A3 /* OpenSans.tiff in Resources */,
+				DD4B8C972A935302000E06A3 /* OpenSans.json in Resources */,
 				DD4B8C4B2A931CFC000E06A3 /* Main.storyboard in Resources */,
 				DD4B8C582A931CFC000E06A3 /* Assets.xcassets in Resources */,
 				DD4B8C552A931CFC000E06A3 /* ShaderTypes.h in Resources */,
@@ -279,10 +356,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD4B8C502A931CFC000E06A3 /* Renderer.swift in Sources */,
-				DD4B8C4D2A931CFC000E06A3 /* Shaders.metal in Sources */,
+				DD4B8C862A934D8D000E06A3 /* MetalDrawables.swift in Sources */,
+				DD4B8C8F2A934DEA000E06A3 /* Font.swift in Sources */,
+				DD4B8C792A9327C3000E06A3 /* Shaders.metal in Sources */,
 				DD4B8C282A931CFC000E06A3 /* GameViewController.swift in Sources */,
+				DD4B8C8B2A934DE3000E06A3 /* Misc.swift in Sources */,
+				DD4B8C6B2A932583000E06A3 /* RayView.swift in Sources */,
 				DD4B8C262A931CFC000E06A3 /* AppDelegate.swift in Sources */,
+				DD4B8C7D2A934BA3000E06A3 /* MetalStates.swift in Sources */,
+				DD4B8C762A9327BF000E06A3 /* Game.swift in Sources */,
+				DD4B8C6F2A9325B2000E06A3 /* Math.swift in Sources */,
+				DD4B8C812A934CC8000E06A3 /* Metal.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,10 +374,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD4B8C512A931CFC000E06A3 /* Renderer.swift in Sources */,
-				DD4B8C4E2A931CFC000E06A3 /* Shaders.metal in Sources */,
+				DD4B8C872A934D8D000E06A3 /* MetalDrawables.swift in Sources */,
+				DD4B8C902A934DEA000E06A3 /* Font.swift in Sources */,
+				DD4B8C7A2A9327C3000E06A3 /* Shaders.metal in Sources */,
 				DD4B8C382A931CFC000E06A3 /* GameViewController.swift in Sources */,
+				DD4B8C8C2A934DE3000E06A3 /* Misc.swift in Sources */,
+				DD4B8C6C2A932583000E06A3 /* RayView.swift in Sources */,
 				DD4B8C362A931CFC000E06A3 /* AppDelegate.swift in Sources */,
+				DD4B8C7E2A934BA3000E06A3 /* MetalStates.swift in Sources */,
+				DD4B8C772A9327BF000E06A3 /* Game.swift in Sources */,
+				DD4B8C702A9325B2000E06A3 /* Math.swift in Sources */,
+				DD4B8C822A934CC8000E06A3 /* Metal.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,10 +392,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD4B8C522A931CFC000E06A3 /* Renderer.swift in Sources */,
-				DD4B8C4F2A931CFC000E06A3 /* Shaders.metal in Sources */,
+				DD4B8C882A934D8D000E06A3 /* MetalDrawables.swift in Sources */,
+				DD4B8C912A934DEA000E06A3 /* Font.swift in Sources */,
+				DD4B8C7B2A9327C4000E06A3 /* Shaders.metal in Sources */,
 				DD4B8C482A931CFC000E06A3 /* GameViewController.swift in Sources */,
+				DD4B8C8D2A934DE3000E06A3 /* Misc.swift in Sources */,
+				DD4B8C6D2A932583000E06A3 /* RayView.swift in Sources */,
 				DD4B8C462A931CFC000E06A3 /* AppDelegate.swift in Sources */,
+				DD4B8C7F2A934BA3000E06A3 /* MetalStates.swift in Sources */,
+				DD4B8C782A9327C0000E06A3 /* Game.swift in Sources */,
+				DD4B8C712A9325B2000E06A3 /* Math.swift in Sources */,
+				DD4B8C832A934CC8000E06A3 /* Metal.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,7 +586,7 @@
 				PRODUCT_NAME = metalRay;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/ShaderTypes.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/Metal/Metal.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -519,7 +617,7 @@
 				PRODUCT_NAME = metalRay;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/ShaderTypes.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/Metal/Metal.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -608,7 +706,7 @@
 				PRODUCT_NAME = metalRay;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/ShaderTypes.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/Metal/Metal.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -638,7 +736,7 @@
 				PRODUCT_NAME = metalRay;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/ShaderTypes.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/Metal/Metal.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
