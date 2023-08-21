@@ -151,6 +151,7 @@ public class RayView       : MTKView
     
     @objc func handlePinchGesture(_ recognizer: UIPinchGestureRecognizer)
     {
+        /*
         if game.state == .Idle {
             if let asset = game.assetFolder.current, asset.type == .Map {
                 if let map = asset.map {
@@ -165,7 +166,7 @@ public class RayView       : MTKView
                     game.mapBuilder.createPreview(map, true)
                 }
             }
-        }
+        }*/
     }
     
     @objc func handleTapGesture(_ recognizer: UITapGestureRecognizer)
@@ -189,12 +190,13 @@ public class RayView       : MTKView
         mousePos.x = x
         mousePos.y = y
         
-        mousePos.x /= Float(bounds.width) / game.texture!.width// / game.scaleFactor
-        mousePos.y /= Float(bounds.height) / game.texture!.height// / game.scaleFactor
+        //mousePos.x /= Float(bounds.width) / game.texture!.width// / game.scaleFactor
+        //mousePos.y /= Float(bounds.height) / game.texture!.height// / game.scaleFactor
     }
     
     var firstTouch = float2(0,0)
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        /*
         mouseIsDown = true
         if let touch = touches.first {
             let point = touch.location(in: self)
@@ -215,10 +217,11 @@ public class RayView       : MTKView
                     }
                 }
             }
-        }
+        }*/
     }
     
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        /*
         if let touch = touches.first {
             let point = touch.location(in: self)
             setMousePos(Float(point.x), Float(point.y))
@@ -235,7 +238,7 @@ public class RayView       : MTKView
                     }
                 }
             }
-        }
+        }*/
     }
     
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

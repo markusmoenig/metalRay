@@ -11,6 +11,8 @@ import Metal
 import MetalKit
 import simd
 
+var globalGame : Game? = nil
+
 class Game: NSObject, MTKViewDelegate {
     
     enum State {
@@ -44,12 +46,17 @@ class Game: NSObject, MTKViewDelegate {
         drawables = MetalDrawables(rayView)
 
         textureLoader = MTKTextureLoader(device: rayView.device!)
+        
+        globalGame = self
     }
     
     func draw(in view: MTKView) {
         drawables.encodeStart()
         
-        drawables.drawBox(position: float2(100, 100), size: float2(500, 200))
+        //drawables.drawBox(position: float2(100, 100), size: float2(500, 200))
+        
+        Update()
+        update()
         
         drawables.encodeEnd()
     }
