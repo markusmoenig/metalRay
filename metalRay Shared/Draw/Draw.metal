@@ -10,29 +10,96 @@ using namespace metal;
 
 #import "../Bridge.h"
 
+struct VertexIn {
+    float2 position               [[attribute(0)]];
+    float2 textureCoordinate      [[attribute(1)]];
+    float4 color                  [[attribute(2)]];
+};
+
+struct VertexOut {
+    float4 position               [[position]];
+    float2 textureCoordinate;
+    float4 color;
+};
+
 typedef struct
 {
-    float4 clipSpacePosition [[position]];
+    float4 clipSpacePosition    [[position]];
     float2 textureCoordinate;
 } RasterizerData;
 
-// Quad Vertex Function
-vertex RasterizerData
-m4mQuadVertexShader(uint vertexID [[ vertex_id ]],
-             constant VertexUniform *vertexArray [[ buffer(0) ]],
-             constant vector_uint2 *viewportSizePointer  [[ buffer(1) ]])
+float degrees(float radians)
 {
-    RasterizerData out;
+    return radians * 180.0 / M_PI_F;
+}
+
+float radians(float degrees)
+{
+    return degrees * M_PI_F / 180.0;
+}
+
+float2 rotateCCW(float2 pos, float angle)
+{
+    float ca = cos(angle), sa = sin(angle);
+    return pos * float2x2(ca, sa, -sa, ca);
+}
+
+// Quad Vertex Function
+vertex VertexOut poly2DVertex(uint vertexID [[ vertex_id ]],
+                              VertexIn in [[stage_in]],
+                              constant vector_uint2 *viewportSizePointer  [[ buffer(1) ]])
+{
+    VertexOut out;
     
-    float2 pixelSpacePosition = vertexArray[vertexID].position.xy;
     float2 viewportSize = float2(*viewportSizePointer);
     
-    out.clipSpacePosition.xy = pixelSpacePosition / (viewportSize / 2.0);
-    out.clipSpacePosition.z = 0.0;
-    out.clipSpacePosition.w = 1.0;
+    out.position.xy = in.position / (viewportSize / 2.0);
+    //out.position.xy = rotateCCW(out.position.xy, radians(20));
+    out.position.z = 0.0;
+    out.position.w = 1.0;
     
-    out.textureCoordinate = vertexArray[vertexID].textureCoordinate;
+    out.textureCoordinate = in.textureCoordinate;
+    out.color = in.color;
     return out;
+}
+
+fragment float4 poly2DFragment(VertexOut in [[stage_in]],
+                               constant BoxUniform *data [[ buffer(0) ]],
+                               texture2d<float> inTexture [[ texture(1) ]] )
+{
+    /*
+    float2 uv = in.textureCoordinate * ( data->size );
+    uv -= float2( data->size / 2.0 );
+            
+    float2 d = abs( uv ) - data->size / 2 + data->onion + data->round;
+    float dist = length(max(d,float2(0))) + min(max(d.x,d.y),0.0) - data->round;
+    
+    if (data->onion > 0.0)
+        dist = abs(dist) - data->onion;
+    
+    const float mask = m4mFillMask( dist );
+    float4 col = float4( data->fillColor.xyz, data->fillColor.w * mask);
+    
+    if (data->hasTexture == 1 && col.w > 0.0) {
+        constexpr sampler textureSampler (mag_filter::linear,
+                                          min_filter::linear);
+        
+        float2 uv = in.textureCoordinate;
+        uv.y = 1 - uv.y;
+        uv = m4mRotateCCWPivot(uv, data->rotation, 0.5);
+
+        float4 sample = float4(inTexture.sample(textureSampler, uv));
+        
+        col.xyz = sample.xyz;
+        col.w = col.w * sample.w;
+    }
+    
+    float borderMask = m4mBorderMask(dist, data->borderSize);
+    float4 borderColor = data->borderColor;
+    borderColor.w *= borderMask;
+    col = mix( col, borderColor, borderMask );*/
+    
+    return in.color;
 }
 
 // --- SDF utilities

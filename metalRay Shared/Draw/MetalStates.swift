@@ -47,17 +47,17 @@ class MetalStates {
         pipelineStateDescriptor.colorAttachments[0].destinationRGBBlendFactor = .oneMinusSourceAlpha
         pipelineStateDescriptor.colorAttachments[0].destinationAlphaBlendFactor = .oneMinusSourceAlpha
         
-        states[States.DrawDisc.rawValue] = createQuadState(name: "m4mDiscDrawable")
-        states[States.CopyTexture.rawValue] = createQuadState(name: "m4mCopyTextureDrawable")
-        states[States.DrawTexture.rawValue] = createQuadState(name: "m4mTextureDrawable")
-        states[States.DrawBox.rawValue] = createQuadState(name: "m4mBoxDrawable")
-        states[States.DrawBoxExt.rawValue] = createQuadState(name: "m4mBoxDrawableExt")
-        states[States.DrawTextChar.rawValue] = createQuadState(name: "m4mTextDrawable")
-        states[States.DrawBackPattern.rawValue] = createQuadState(name: "m4mBoxPatternDrawable")
-        states[States.DrawLine.rawValue] = createQuadState(name: "m4mLineDrawable")
-        states[States.DrawBezier.rawValue] = createQuadState(name: "m4mBezierDrawable")
-        states[States.DrawGrid.rawValue] = createQuadState(name: "m4mGridDrawable")
-        states[States.RenderVoxelTiles.rawValue] = createQuadState(name: "renderVoxelTiles")
+//        states[States.DrawDisc.rawValue] = createQuadState(name: "m4mDiscDrawable")
+//        states[States.CopyTexture.rawValue] = createQuadState(name: "m4mCopyTextureDrawable")
+//        states[States.DrawTexture.rawValue] = createQuadState(name: "m4mTextureDrawable")
+//        states[States.DrawBox.rawValue] = createQuadState(name: "m4mBoxDrawable")
+//        states[States.DrawBoxExt.rawValue] = createQuadState(name: "m4mBoxDrawableExt")
+//        states[States.DrawTextChar.rawValue] = createQuadState(name: "m4mTextDrawable")
+//        states[States.DrawBackPattern.rawValue] = createQuadState(name: "m4mBoxPatternDrawable")
+//        states[States.DrawLine.rawValue] = createQuadState(name: "m4mLineDrawable")
+//        states[States.DrawBezier.rawValue] = createQuadState(name: "m4mBezierDrawable")
+//        states[States.DrawGrid.rawValue] = createQuadState(name: "m4mGridDrawable")
+//        states[States.RenderVoxelTiles.rawValue] = createQuadState(name: "renderVoxelTiles")
 
         computeStates[ComputeStates.MakeCGIImage.rawValue] = createComputeState(name: "makeCGIImage")
     }

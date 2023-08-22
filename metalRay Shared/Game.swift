@@ -26,7 +26,7 @@ class Game: NSObject, MTKViewDelegate {
     var device                                  : MTLDevice!
 
     var metalStates                             : MetalStates!
-    var drawables                               : MetalDrawables!
+    var draw2D                                  : MetalDraw2D!
 
     var textureLoader                           : MTKTextureLoader!
 
@@ -43,7 +43,7 @@ class Game: NSObject, MTKViewDelegate {
         
         rayView.game = self
         metalStates = MetalStates(rayView)
-        drawables = MetalDrawables(rayView)
+        draw2D = MetalDraw2D(rayView)
 
         textureLoader = MTKTextureLoader(device: rayView.device!)
         

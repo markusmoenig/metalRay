@@ -1,10 +1,17 @@
 
-This is a concept study if it is possible to create an Xcode project with support of the C based [rayLib](https://raylib.com) API, implemented in Metal. While providing the same functionality also in Swift.
+## metalRay
 
-So far the answer is yes, rayLib based games would only need very minor modifications to be able to run natively in Metal while being able to be deployed easily to macOS, iOS and tvOS.
+**metalRay** is an ongoing effort to create a game framework for the Apple ecosystem supporting both the Swift and C programming languages. While the C version is compatible with the popular [raylib](https://raylib.com) library.
 
-The rayLib API is also available in Swift, so games could also be implemented purely in Swift, C and Swift can also be mixed.
+All drawing is done natively in Metal. Existing *raylib* games need only very minor modifications to run in Metal while being able to be deployed easily to macOS, iOS and tvOS (Note that only a small subset of the *raylib* library is supported right now, this will grow over time).
 
-While it is possible, it is also a lot of work. I will try to get the 2D API with most of the core module working first in the next weeks.
+*metalRay* focuses right now on 2D drawing, 3D support will be integrated once 2D is stable.
 
-  
+## How to use
+
+Fork this repository and open the Xcode project. The Swift based game can be found inside the **GameSwift** folder, the C based game in the **GameC** folder.
+
+You can either use Swift or C or mix both.
+
+The Xcode project contains targets for macOS, iOS and tvOS.
+

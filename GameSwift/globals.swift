@@ -41,3 +41,7 @@ func float4ToColor(_ color: float4) -> Color {
 func colorToFloat4(_ color: Color) -> float4 {
     return float4(Float(color.r) / 255, Float(color.g) / 255, Float(color.b) / 255, Float(color.a) / 255)
 }
+
+func vector2ToFloat2(_ v: Vector2) -> float2 {
+    return float2(v.x, v.y)
+}
