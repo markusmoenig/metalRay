@@ -145,6 +145,17 @@ func DrawLine(startPosX: Int, startPosY: Int, endPosX: Int, endPosY: Int, color:
     }
 }
 
+@_silgen_name("DrawLineStrip")
+func DrawLineStrip(vector: [Vector2], pointCount: Int, color: Color) {
+    if let game = globalGame {
+
+        //let c = colorToFloat4(color)
+        game.draw2D.startShape()
+
+        game.draw2D.endShape(type: .lineStrip)
+    }
+}
+
 // -- Triangle
 
 @_silgen_name("DrawTriangle")
@@ -310,7 +321,6 @@ func DrawCircleSector(center: Vector2, radius: Float, startAngle: Float, endAngl
     
     let DEG2RAD = Float.pi / 180.0
     
-    
     if let game = globalGame {
         
         let c = colorToFloat4(color)
@@ -325,5 +335,49 @@ func DrawCircleSector(center: Vector2, radius: Float, startAngle: Float, endAngl
         }
         
         game.draw2D.endShape(type: .triangle)
+    }
+}
+
+@_silgen_name("DrawCircleGradient")
+func DrawCircleGradient(centerX: Int, centerY: Int, radius: Float, color1: Color, color2: Color) {
+    if let game = globalGame {
+        
+        let c1 = colorToFloat4(color1)
+        let c2 = colorToFloat4(color2)
+        game.draw2D.startShape()
+        
+        let center = float2(Float(centerX), Float(centerY))
+        
+        let DEG2RAD = Float.pi / 180.0
+
+        for i in stride(from: 0, through: 360, by: 10) {
+            let fi = Float(i)
+            game.draw2D.addVertex(float2(center.x, center.y), float2(0.0, 0.0), c1)
+            game.draw2D.addVertex(float2(center.x + cos(DEG2RAD * (fi + 10)) * radius, center.y + sin(DEG2RAD * (fi + 10)) * radius), float2(0.0, 0.0), c2)
+            game.draw2D.addVertex(float2(center.x + cos(DEG2RAD * fi) * radius, center.y + sin(DEG2RAD * fi) * radius), float2(0.0, 0.0), c2)
+        }
+        
+        game.draw2D.endShape(type: .triangle)
+    }
+}
+
+@_silgen_name("DrawCircleLines")
+func DrawCircleLines(centerX: Int, centerY: Int, radius: Float, color: Color) {
+    if let game = globalGame {
+        
+        let c = colorToFloat4(color)
+        game.draw2D.startShape()
+        
+        let center = float2(Float(centerX), Float(centerY))
+        
+        let DEG2RAD = Float.pi / 180.0
+
+        for i in stride(from: 0, through: 360, by: 10) {
+            let fi = Float(i)
+            game.draw2D.addVertex(float2(center.x + cos(DEG2RAD * fi) * radius, center.y + sin(DEG2RAD * fi) * radius), float2(0.0, 0.0), c)
+            game.draw2D.addVertex(float2(center.x + cos(DEG2RAD * (fi + 10)) * radius, center.y + sin(DEG2RAD * (fi + 10)) * radius), float2(0.0, 0.0), c)
+        }
+        
+        game.draw2D.endShape(type: .line)
     }
 }

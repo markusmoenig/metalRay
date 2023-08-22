@@ -22,8 +22,8 @@ int Update(void) {
     
     // Circle shapes and lines
     DrawCircle(screenWidth/5, 120, 35, DARKBLUE);
-    //DrawCircleGradient(screenWidth/5, 220, 60, GREEN, SKYBLUE);
-    //DrawCircleLines(screenWidth/5, 340, 80, DARKBLUE);
+    DrawCircleGradient(screenWidth/5, 220, 60, GREEN, SKYBLUE);
+    DrawCircleLines(screenWidth/5, 340, 80, DARKBLUE);
     
     // Rectangle shapes and lines
     DrawRectangle(screenWidth/4*2 - 60, 100, 120, 60, RED);

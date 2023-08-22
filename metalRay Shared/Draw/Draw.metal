@@ -28,22 +28,6 @@ typedef struct
     float2 textureCoordinate;
 } RasterizerData;
 
-float degrees(float radians)
-{
-    return radians * 180.0 / M_PI_F;
-}
-
-float radians(float degrees)
-{
-    return degrees * M_PI_F / 180.0;
-}
-
-float2 rotateCCW(float2 pos, float angle)
-{
-    float ca = cos(angle), sa = sin(angle);
-    return pos * float2x2(ca, sa, -sa, ca);
-}
-
 // Quad Vertex Function
 vertex VertexOut poly2DVertex(uint vertexID [[ vertex_id ]],
                               VertexIn in [[stage_in]],
@@ -54,7 +38,6 @@ vertex VertexOut poly2DVertex(uint vertexID [[ vertex_id ]],
     float2 viewportSize = float2(*viewportSizePointer);
     
     out.position.xy = in.position / (viewportSize / 2.0);
-    //out.position.xy = rotateCCW(out.position.xy, radians(20));
     out.position.z = 0.0;
     out.position.w = 1.0;
     
