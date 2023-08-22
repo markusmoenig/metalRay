@@ -1,11 +1,25 @@
 //
-//  Shapes.swift
+//  Drawing.swift
 //  metalRay
 //
 //  Created by Markus Moenig on 21/8/23.
 //
 
 import Foundation
+
+@_silgen_name("BeginDrawing")
+func BeginDrawing() {
+    if let game = globalGame {
+        game.drawables.encodeStart()
+    }
+}
+
+@_silgen_name("EndDrawing")
+func EndDrawing() {
+    if let game = globalGame {
+        game.drawables.encodeEnd()
+    }
+}
 
 @_silgen_name("ClearBackground")
 func ClearBackground(color: Color) {

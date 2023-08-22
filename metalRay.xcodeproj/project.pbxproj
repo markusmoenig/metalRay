@@ -57,18 +57,18 @@
 		DD4B8C982A935302000E06A3 /* OpenSans.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C942A935302000E06A3 /* OpenSans.tiff */; };
 		DD4B8C992A935302000E06A3 /* OpenSans.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C942A935302000E06A3 /* OpenSans.tiff */; };
 		DD4B8C9A2A935302000E06A3 /* OpenSans.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C942A935302000E06A3 /* OpenSans.tiff */; };
-		DD4B8C9F2A936C94000E06A3 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C9E2A936C94000E06A3 /* Shapes.swift */; };
-		DD4B8CA02A936C94000E06A3 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C9E2A936C94000E06A3 /* Shapes.swift */; };
-		DD4B8CA12A936C94000E06A3 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C9E2A936C94000E06A3 /* Shapes.swift */; };
+		DD4B8C9F2A936C94000E06A3 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C9E2A936C94000E06A3 /* Drawing.swift */; };
+		DD4B8CA02A936C94000E06A3 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C9E2A936C94000E06A3 /* Drawing.swift */; };
+		DD4B8CA12A936C94000E06A3 /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C9E2A936C94000E06A3 /* Drawing.swift */; };
 		DD4B8CA32A936E4F000E06A3 /* game.c in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CA22A936E4F000E06A3 /* game.c */; };
 		DD4B8CA42A936E4F000E06A3 /* game.c in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CA22A936E4F000E06A3 /* game.c */; };
 		DD4B8CA52A936E4F000E06A3 /* game.c in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CA22A936E4F000E06A3 /* game.c */; };
 		DD4B8CA82A937772000E06A3 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CA72A937772000E06A3 /* game.swift */; };
 		DD4B8CA92A937772000E06A3 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CA72A937772000E06A3 /* game.swift */; };
 		DD4B8CAA2A937772000E06A3 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CA72A937772000E06A3 /* game.swift */; };
-		DD4B8CAD2A938420000E06A3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* Globals.swift */; };
-		DD4B8CAE2A938420000E06A3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* Globals.swift */; };
-		DD4B8CAF2A938420000E06A3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* Globals.swift */; };
+		DD4B8CAD2A938420000E06A3 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* globals.swift */; };
+		DD4B8CAE2A938420000E06A3 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* globals.swift */; };
+		DD4B8CAF2A938420000E06A3 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* globals.swift */; };
 		DD4B8CB12A93885F000E06A3 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8CB02A93885F000E06A3 /* Readme.md */; };
 		DD4B8CB22A93885F000E06A3 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8CB02A93885F000E06A3 /* Readme.md */; };
 		DD4B8CB32A93885F000E06A3 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8CB02A93885F000E06A3 /* Readme.md */; };
@@ -104,11 +104,11 @@
 		DD4B8C8E2A934DEA000E06A3 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		DD4B8C932A935302000E06A3 /* OpenSans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OpenSans.json; sourceTree = "<group>"; };
 		DD4B8C942A935302000E06A3 /* OpenSans.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OpenSans.tiff; sourceTree = "<group>"; };
-		DD4B8C9E2A936C94000E06A3 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		DD4B8C9E2A936C94000E06A3 /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 		DD4B8CA22A936E4F000E06A3 /* game.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = game.c; sourceTree = "<group>"; };
 		DD4B8CA62A937391000E06A3 /* raylib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = raylib.h; sourceTree = "<group>"; };
 		DD4B8CA72A937772000E06A3 /* game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game.swift; sourceTree = "<group>"; };
-		DD4B8CAC2A938420000E06A3 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		DD4B8CAC2A938420000E06A3 /* globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globals.swift; sourceTree = "<group>"; };
 		DD4B8CB02A93885F000E06A3 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,7 +160,6 @@
 				DD4B8C1C2A931CFA000E06A3 /* ShaderTypes.h */,
 				DD4B8C1D2A931CFC000E06A3 /* Assets.xcassets */,
 				DD4B8C842A934CFD000E06A3 /* Bridge.h */,
-				DD4B8CAC2A938420000E06A3 /* Globals.swift */,
 				DD4B8C9D2A936C81000E06A3 /* Functions */,
 				DD4B8C692A93256D000E06A3 /* Draw */,
 				DD4B8C892A934DB6000E06A3 /* Misc */,
@@ -244,6 +243,7 @@
 		DD4B8C9B2A93560A000E06A3 /* GameSwift */ = {
 			isa = PBXGroup;
 			children = (
+				DD4B8CAC2A938420000E06A3 /* globals.swift */,
 				DD4B8CA72A937772000E06A3 /* game.swift */,
 			);
 			path = GameSwift;
@@ -261,7 +261,7 @@
 		DD4B8C9D2A936C81000E06A3 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
-				DD4B8C9E2A936C94000E06A3 /* Shapes.swift */,
+				DD4B8C9E2A936C94000E06A3 /* Drawing.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -426,13 +426,13 @@
 				DD4B8C8B2A934DE3000E06A3 /* Misc.swift in Sources */,
 				DD4B8C6B2A932583000E06A3 /* RayView.swift in Sources */,
 				DD4B8C262A931CFC000E06A3 /* AppDelegate.swift in Sources */,
-				DD4B8CAD2A938420000E06A3 /* Globals.swift in Sources */,
+				DD4B8CAD2A938420000E06A3 /* globals.swift in Sources */,
 				DD4B8CA82A937772000E06A3 /* game.swift in Sources */,
 				DD4B8C7D2A934BA3000E06A3 /* MetalStates.swift in Sources */,
 				DD4B8C762A9327BF000E06A3 /* Game.swift in Sources */,
 				DD4B8C6F2A9325B2000E06A3 /* Math.swift in Sources */,
 				DD4B8C812A934CC8000E06A3 /* Draw.metal in Sources */,
-				DD4B8C9F2A936C94000E06A3 /* Shapes.swift in Sources */,
+				DD4B8C9F2A936C94000E06A3 /* Drawing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,13 +448,13 @@
 				DD4B8C8C2A934DE3000E06A3 /* Misc.swift in Sources */,
 				DD4B8C6C2A932583000E06A3 /* RayView.swift in Sources */,
 				DD4B8C362A931CFC000E06A3 /* AppDelegate.swift in Sources */,
-				DD4B8CAE2A938420000E06A3 /* Globals.swift in Sources */,
+				DD4B8CAE2A938420000E06A3 /* globals.swift in Sources */,
 				DD4B8CA92A937772000E06A3 /* game.swift in Sources */,
 				DD4B8C7E2A934BA3000E06A3 /* MetalStates.swift in Sources */,
 				DD4B8C772A9327BF000E06A3 /* Game.swift in Sources */,
 				DD4B8C702A9325B2000E06A3 /* Math.swift in Sources */,
 				DD4B8C822A934CC8000E06A3 /* Draw.metal in Sources */,
-				DD4B8CA02A936C94000E06A3 /* Shapes.swift in Sources */,
+				DD4B8CA02A936C94000E06A3 /* Drawing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,13 +470,13 @@
 				DD4B8C8D2A934DE3000E06A3 /* Misc.swift in Sources */,
 				DD4B8C6D2A932583000E06A3 /* RayView.swift in Sources */,
 				DD4B8C462A931CFC000E06A3 /* AppDelegate.swift in Sources */,
-				DD4B8CAF2A938420000E06A3 /* Globals.swift in Sources */,
+				DD4B8CAF2A938420000E06A3 /* globals.swift in Sources */,
 				DD4B8CAA2A937772000E06A3 /* game.swift in Sources */,
 				DD4B8C7F2A934BA3000E06A3 /* MetalStates.swift in Sources */,
 				DD4B8C782A9327C0000E06A3 /* Game.swift in Sources */,
 				DD4B8C712A9325B2000E06A3 /* Math.swift in Sources */,
 				DD4B8C832A934CC8000E06A3 /* Draw.metal in Sources */,
-				DD4B8CA12A936C94000E06A3 /* Shapes.swift in Sources */,
+				DD4B8CA12A936C94000E06A3 /* Drawing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,7 +722,7 @@
 				PRODUCT_NAME = metalRay;
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/ShaderTypes.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 16.4;
@@ -751,7 +751,7 @@
 				PRODUCT_NAME = metalRay;
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/ShaderTypes.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "metalRay Shared/Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 16.4;

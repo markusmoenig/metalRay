@@ -37,7 +37,7 @@ class MetalDrawables
         self.metalView = metalView
         #if os(iOS)
         metalView.layer.isOpaque = false
-        #else
+        #elseif os(macOS)
         metalView.layer?.isOpaque = false
         #endif
 
@@ -94,8 +94,10 @@ class MetalDrawables
         commandBuffer = commandQueue.makeCommandBuffer()!
         let renderPassDescriptor = metalView.currentRenderPassDescriptor
         
-        renderPassDescriptor!.colorAttachments[0].loadAction = .clear
-        renderPassDescriptor!.colorAttachments[0].clearColor = MTLClearColor( red: Double(clearColor.x), green: Double(clearColor.y), blue: Double(clearColor.z), alpha: Double(clearColor.w))
+//        renderPassDescriptor!.colorAttachments[0].loadAction = .clear
+//        renderPassDescriptor!.colorAttachments[0].clearColor = MTLClearColor( red: Double(clearColor.x), green: Double(clearColor.y), blue: Double(clearColor.z), alpha: Double(clearColor.w))
+//
+        renderPassDescriptor!.colorAttachments[0].loadAction = .load
         
         if renderPassDescriptor != nil {
             renderEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor! )

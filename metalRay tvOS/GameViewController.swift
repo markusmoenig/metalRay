@@ -11,35 +11,33 @@ import MetalKit
 // Our iOS specific view controller
 class GameViewController: UIViewController {
 
-    var renderer: Renderer!
-    var mtkView: MTKView!
+    var rayView             : RayView!
+    var game                : Game!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        guard let mtkView = self.view as? MTKView else {
-            print("View of Gameview controller is not an MTKView")
+        
+        guard let rayView = self.view as? RayView else {
+            print("View attached to GameViewController is not an MTKView")
             return
         }
 
         // Select the device to render with.  We choose the default device
         guard let defaultDevice = MTLCreateSystemDefaultDevice() else {
-            print("Metal is not supported")
+            print("Metal is not supported on this device")
             return
         }
 
-        mtkView.device = defaultDevice
-        mtkView.backgroundColor = UIColor.black
+        rayView.device = defaultDevice
 
-        guard let newRenderer = Renderer(metalKitView: mtkView) else {
-            print("Renderer cannot be initialized")
+        guard let game = Game(view: rayView) else {
+            print("Game cannot be initialized")
             return
         }
-
-        renderer = newRenderer
-
-        renderer.mtkView(mtkView, drawableSizeWillChange: mtkView.drawableSize)
-
-        mtkView.delegate = renderer
+        
+        game.mtkView(rayView, drawableSizeWillChange: rayView.drawableSize)
+        rayView.platformInit()
+        
+        rayView.delegate = game
     }
 }

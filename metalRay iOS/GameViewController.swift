@@ -11,7 +11,6 @@ import MetalKit
 // Our iOS specific view controller
 class GameViewController: UIViewController {
 
-
     var rayView             : RayView!
     var game                : Game!
 

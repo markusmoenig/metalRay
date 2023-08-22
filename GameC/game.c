@@ -11,9 +11,12 @@
 
 int Update(void) {
     
+    BeginDrawing();
     ClearBackground(RAYWHITE);
     
     DrawRectangle(50, 50, 200, 200, ORANGE);
+    
+    EndDrawing();
     
     return 0;
 }

@@ -51,14 +51,10 @@ class Game: NSObject, MTKViewDelegate {
     }
     
     func draw(in view: MTKView) {
-        drawables.encodeStart()
-        
         //drawables.drawBox(position: float2(100, 100), size: float2(500, 200))
         
         Update()
-        update()
-        
-        drawables.encodeEnd()
+        update()        
     }
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {

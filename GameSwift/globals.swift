@@ -34,6 +34,10 @@ let BLANK = Color(r: 0, g: 0, b: 0, a: 0)
 let MAGENTA = Color(r: 255, g: 0, b: 255, a: 255)
 let RAYWHITE = Color(r: 245, g: 245, b: 245, a: 255)
 
+func float4ToColor(_ color: float4) -> Color {
+    return Color(r: UInt8(color.x * 255), g: UInt8(color.y * 255), b: UInt8(color.z * 255), a: UInt8(color.w * 255))
+}
+
 func colorToFloat4(_ color: Color) -> float4 {
-    return float4(Float(color.r) / 255.0, Float(color.g) / 255.0, Float(color.b) / 255.0, Float(color.a) / 255.0)
+    return float4(Float(color.r) / 255, Float(color.g) / 255, Float(color.b) / 255, Float(color.a) / 255)
 }
