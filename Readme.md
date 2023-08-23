@@ -9,6 +9,8 @@ All drawing is done natively in Metal. Existing *raylib* games need only very mi
 
 ![Basic Shapes](./examples/basic_shapes.png)
 
+*metalRay* is currently in a concept / design phase and not usable for production.
+
 ## How to use
 
 Fork this repository and open the Xcode project. The Swift based game can be found inside the **GameSwift** folder, the C based game in the **GameC** folder.
