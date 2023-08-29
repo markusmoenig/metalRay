@@ -7,6 +7,11 @@
 
 import Foundation
 
+extension String {
+    var charpointer: UnsafeMutablePointer<Int8> {
+        return UnsafeMutablePointer(mutating: (self as NSString).utf8String!)
+}}
+
 let LIGHTGRAY = Color(r: 200, g: 200, b: 200, a: 255)
 let GRAY = Color(r: 130, g: 130, b: 130, a: 255)
 let DARKGRAY = Color(r: 80, g: 80, b: 80, a: 255)

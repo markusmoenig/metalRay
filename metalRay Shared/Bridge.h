@@ -129,7 +129,11 @@ typedef struct {
 
 } ModelerUniform;
 
-#include "metalray.h"
+void InitGame(void);
+void UpdateGame(void);
+void DeinitGame(void);
+
+#include "metalray_core.h"
 #include "../Game/header.h"
 
 #endif /* Metal_h */

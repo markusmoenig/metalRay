@@ -80,6 +80,7 @@
 
 /* Begin PBXFileReference section */
 		DD3C39AD2A9DB290007DF0F9 /* Test.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Test.tiff; sourceTree = "<group>"; };
+		DD3C39AF2A9DF0FA007DF0F9 /* metalray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = metalray.h; sourceTree = "<group>"; };
 		DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		DD4B8C1B2A931CFA000E06A3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		DD4B8C1C2A931CFA000E06A3 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
@@ -116,7 +117,7 @@
 		DD4B8CB02A93885F000E06A3 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		DD4B8CB42A94B2D3000E06A3 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		DD4B8CBC2A97126E000E06A3 /* header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = header.h; sourceTree = "<group>"; };
-		DD4B8CBD2A9C3BD9000E06A3 /* metalray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = metalray.h; sourceTree = "<group>"; };
+		DD4B8CBD2A9C3BD9000E06A3 /* metalray_core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = metalray_core.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,7 +169,8 @@
 				DD4B8C1D2A931CFC000E06A3 /* Assets.xcassets */,
 				DD4B8CAC2A938420000E06A3 /* Globals.swift */,
 				DD4B8C842A934CFD000E06A3 /* Bridge.h */,
-				DD4B8CBD2A9C3BD9000E06A3 /* metalray.h */,
+				DD4B8CBD2A9C3BD9000E06A3 /* metalray_core.h */,
+				DD3C39AF2A9DF0FA007DF0F9 /* metalray.h */,
 				DD4B8C9D2A936C81000E06A3 /* Functions */,
 				DD4B8C692A93256D000E06A3 /* Draw */,
 				DD4B8C892A934DB6000E06A3 /* Misc */,

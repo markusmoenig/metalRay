@@ -54,11 +54,13 @@ func CreateTexture(width: Int, height: Int) -> Int {
 
 /// LoadTexture
 @_silgen_name("LoadTexture")
-func LoadTexture(name: String) -> Int {
-    if let game = globalGame {
-        if let id = game.draw2D.loadTexture(name) {
-            print("yes")
-            return id
+func LoadTexture(name: UnsafePointer<Int8>) -> Int {
+    if let name = String(cString: name, encoding: .utf8) {
+        print(name)
+        if let game = globalGame {
+            if let id = game.draw2D.loadTexture(name) {
+                return id
+            }
         }
     }
     return -1

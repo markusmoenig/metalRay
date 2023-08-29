@@ -8,13 +8,24 @@
 #include <stdio.h>
 #include <metalray.h>
 
+int textureId;
+float rot = 0.0;
+
 void InitGame(void) {
+    textureId = LoadTexture("Test");
 }
 
 void UpdateGame(void) {
-    // BeginDrawing();
-    // Clear(ORANGE);
-    // EndDrawing();
+    
+    rot += 1.0;
+    
+    BeginDrawing();
+    Clear(ORANGE);
+    
+    SetTexture(textureId);
+    DrawRectRotCenter((Rectangle){100, 100, 400, 400}, GREEN, rot);
+    SetTexture(0);
+    EndDrawing();
 }
 
 void DeinitGame(void) {

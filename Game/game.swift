@@ -14,7 +14,7 @@ func initGame() {
     // Call the C Init, remove if not needed
     InitGame();
     
-    textureId = LoadTexture(name: "Test")
+    //textureId = LoadTexture(name: ("Test" as NSString).utf8String!)
 //    textureId = CreateTexture(width: 400, height: 400)
 }
 
@@ -30,13 +30,13 @@ func updateGame() {
 //    EndDrawing()
 //    SetTarget(id: 0)
     
-    rot += 1
-    BeginDrawing()
-    Clear(color: ORANGE)
-    SetTexture(id: textureId)
-    DrawRectRotCenter(rect: Rectangle(x: 100, y: 100, width: 400, height: 400), color: GREEN, rot: rot)
-    SetTexture(id: 0)
-    EndDrawing()
+//    rot += 1
+//    BeginDrawing()
+//    Clear(color: ORANGE)
+//    SetTexture(id: textureId)
+//    DrawRectRotCenter(rect: Rectangle(x: 100, y: 100, width: 400, height: 400), color: GREEN, rot: rot)
+//    SetTexture(id: 0)
+//    EndDrawing()
 }
 
 func deinitGame() {
