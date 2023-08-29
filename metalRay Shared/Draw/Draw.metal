@@ -47,9 +47,18 @@ vertex VertexOut poly2DVertex(uint vertexID [[ vertex_id ]],
 }
 
 fragment float4 poly2DFragment(VertexOut in [[stage_in]],
-                               constant BoxUniform *data [[ buffer(0) ]],
+                               constant RectUniform *data [[ buffer(0) ]],
                                texture2d<float> inTexture [[ texture(1) ]] )
 {
+    float4 color = in.color;
+    
+    if (data->hasTexture == 1) {
+        constexpr sampler textureSampler (mag_filter::linear,
+                                          min_filter::linear);
+        float2 uv = in.textureCoordinate;
+        uv.y = 1 - uv.y;
+        color = float4(inTexture.sample(textureSampler, uv));
+    }
     /*
     float2 uv = in.textureCoordinate * ( data->size );
     uv -= float2( data->size / 2.0 );
@@ -82,7 +91,7 @@ fragment float4 poly2DFragment(VertexOut in [[stage_in]],
     borderColor.w *= borderMask;
     col = mix( col, borderColor, borderMask );*/
     
-    return in.color;
+    return color;
 }
 
 // --- SDF utilities

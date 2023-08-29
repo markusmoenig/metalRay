@@ -124,11 +124,11 @@ class Font
         return nil
     }
     
-    @discardableResult func getTextRect(text: String, scale: Float = 1.0, rectToUse: Rect? = nil) -> Rect
+    @discardableResult func getTextRect(text: String, scale: Float = 1.0, rectToUse: MRRect? = nil) -> MRRect
     {
-        var rect : Rect
+        var rect : MRRect
         if rectToUse == nil {
-            rect = Rect()
+            rect = MRRect()
         } else {
             rect = rectToUse!
         }

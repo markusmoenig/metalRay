@@ -54,6 +54,14 @@ class MetalDraw2D
     var vertexData      : [Float] = []
     var vertexCount     : Int = 0
     
+    var primitiveType   : MTLPrimitiveType = .triangle
+    
+    var textures        : [Int:MTLTexture] = [:]
+    var textureIdCount  : Int = 1
+    
+    var target          : Int? = nil
+    var texture         : Int? = nil
+
     var font            : Font! = nil
 
     init(_ metalView: RayView)
@@ -111,12 +119,19 @@ class MetalDraw2D
     @discardableResult func encodeStart(_ clearColor: float4 = float4(0.125, 0.129, 0.137, 1)) -> MTLRenderCommandEncoder?
     {
         if font == nil { font = Font(name: "OpenSans", game: metalView.game) }
-        
+                
         viewportSize = vector_uint2( UInt32(metalView.bounds.width), UInt32(metalView.bounds.height) )
         viewSize = float2(Float(metalView.bounds.width), Float(metalView.bounds.height))
 
         commandBuffer = commandQueue.makeCommandBuffer()!
-        let renderPassDescriptor = metalView.currentRenderPassDescriptor
+        var renderPassDescriptor : MTLRenderPassDescriptor?
+        
+        if target == nil {
+            renderPassDescriptor = metalView.currentRenderPassDescriptor
+        } else {
+            renderPassDescriptor = MTLRenderPassDescriptor()
+            renderPassDescriptor?.colorAttachments[0].texture = textures[target!]
+        }
         
 //        renderPassDescriptor!.colorAttachments[0].loadAction = .clear
 //        renderPassDescriptor!.colorAttachments[0].clearColor = MTLClearColor( red: Double(clearColor.x), green: Double(clearColor.y), blue: Double(clearColor.z), alpha: Double(clearColor.w))
@@ -141,27 +156,34 @@ class MetalDraw2D
     {
         renderEncoder?.endEncoding()
         
-        guard let drawable = metalView.currentDrawable else {
-            return
-        }
-        
-        if let commandBuffer = commandBuffer {
-            //commandBuffer.addCompletedHandler { cb in
-            //    print("Rendering Time:", (cb.gpuEndTime - cb.gpuStartTime) * 1000)
-            //}
-            commandBuffer.present(drawable)
+        if target == nil {
+            guard let drawable = metalView.currentDrawable else {
+                return
+            }
+            
+            if let commandBuffer = commandBuffer {
+                //commandBuffer.addCompletedHandler { cb in
+                //    print("Rendering Time:", (cb.gpuEndTime - cb.gpuStartTime) * 1000)
+                //}
+                commandBuffer.present(drawable)
+                commandBuffer.commit()
+            }
+        } else {
             commandBuffer.commit()
         }
     }
     
-    func startShape() {
+    func startShape(type: MTLPrimitiveType) {
+        
+        primitiveType = type
+        
         vertexData = []
         vertexCount = 0
     }
     
     func addVertex(_ vertex: float2,_ textureCoordinate: float2,_ color: float4) {
-        vertexData.append(-viewSize.x / 2.0 + vertex.x)
-        vertexData.append(viewSize.y / 2.0 - vertex.y)
+        vertexData.append(-viewSize.x / 2.0 + vertex.x * scaleFactor)
+        vertexData.append(viewSize.y / 2.0 - vertex.y * scaleFactor)
         vertexData.append(textureCoordinate.x)
         vertexData.append(textureCoordinate.y)
         vertexData.append(color.x)
@@ -171,18 +193,94 @@ class MetalDraw2D
         vertexCount += 1
     }
     
-    func endShape(type: MTLPrimitiveType) {
-        var data = BoxUniform()
-
-        renderEncoder.setVertexBytes(vertexData, length: vertexData.count * MemoryLayout<Float>.stride, index: 0)
-        renderEncoder.setVertexBytes(&viewportSize, length: MemoryLayout<vector_uint2>.stride, index: 1)
+    func drawRect(_ rect: Rectangle,_ c: float4, _ rot: Float) {
         
-        renderEncoder.setFragmentBytes(&data, length: MemoryLayout<BoxUniform>.stride, index: 0)
-//        if let texture = texture {
-//            renderEncoder.setFragmentTexture(texture, index: 1)
-//        }
-        renderEncoder.setRenderPipelineState(polyState!)
-        renderEncoder.drawPrimitives(type: type, vertexStart: 0, vertexCount: vertexCount)
+        //        right, bottom, 1.0, 0.0,
+        //        left, bottom, 0.0, 0.0,
+        //        left, top, 0.0, 1.0,
+        //
+        //        right, bottom, 1.0, 0.0,
+        //        left, top, 0.0, 1.0,
+        //        right, top, 1.0, 1.0,
+        
+        func xToMetal(_ v: Float) -> Float {
+            -viewSize.x / 2.0 + v// * scaleFactor
+        }
+        
+        func yToMetal(_ v: Float) -> Float {
+            viewSize.y / 2.0 - v// * scaleFactor
+        }
+        
+        if rot == 0.0 {
+            let arr : [Float ] = [
+                xToMetal(rect.x + rect.width), yToMetal(rect.y + rect.height), 1.0, 0.0, c.x, c.y, c.z, c.w,
+                xToMetal(rect.x), yToMetal(rect.y + rect.height), 0.0, 0.0, c.x, c.y, c.z, c.w,
+                xToMetal(rect.x), yToMetal(rect.y), 0.0, 1.0, c.x, c.y, c.z, c.w,
+                 
+                xToMetal(rect.x + rect.width), yToMetal(rect.y + rect.height), 1.0, 0.0, c.x, c.y, c.z, c.w,
+                xToMetal(rect.x), yToMetal(rect.y), 0.0, 1.0, c.x, c.y, c.z, c.w,
+                xToMetal(rect.x + rect.width), yToMetal(rect.y), 1.0, 1.0, c.x, c.y, c.z, c.w,
+            ]
+            
+            vertexData.append(contentsOf: arr)
+            vertexCount += arr.count
+        } else {
+                        
+            let radians = rot.degreesToRadians
+            let cos = cos(radians)
+            let sin = sin(radians)
+            let cx = rect.x + rect.width / 2.0
+            let cy = rect.y + rect.height / 2.0
+
+            func rotate(x : Float, y : Float) -> (Float, Float) {
+                let nx = (cos * (x - cx)) + (sin * (y - cy)) + cx
+                let ny = (cos * (y - cy)) - (sin * (x - cx)) + cy
+                return (nx, ny)
+            }
+
+            let topLeft = rotate(x: rect.x, y: rect.y)
+            let topRight = rotate(x: rect.x + rect.width, y: rect.y)
+            let bottomLeft = rotate(x: rect.x, y: rect.y + rect.height)
+            let bottomRight = rotate(x: rect.x + rect.width, y: rect.y + rect.height)
+            
+            let arr : [Float ] = [
+                xToMetal(bottomRight.0), yToMetal(bottomRight.1), 1.0, 0.0, c.x, c.y, c.z, c.w,
+                xToMetal(bottomLeft.0), yToMetal(bottomLeft.1), 0.0, 0.0, c.x, c.y, c.z, c.w,
+                xToMetal(topLeft.0), yToMetal(topLeft.1), 0.0, 1.0, c.x, c.y, c.z, c.w,
+                 
+                xToMetal(bottomRight.0), yToMetal(bottomRight.1), 1.0, 0.0, c.x, c.y, c.z, c.w,
+                xToMetal(topLeft.0), yToMetal(topLeft.1), 0.0, 1.0, c.x, c.y, c.z, c.w,
+                xToMetal(topRight.0), yToMetal(topRight.1), 1.0, 1.0, c.x, c.y, c.z, c.w,
+            ]
+            
+            vertexData.append(contentsOf: arr)
+            vertexCount += arr.count
+        }
+    }
+    
+    func endShape() {
+        
+        if !vertexData.isEmpty {
+            var data = RectUniform()
+            data.hasTexture = 0;
+            
+            renderEncoder.setVertexBytes(vertexData, length: vertexData.count * MemoryLayout<Float>.stride, index: 0)
+            renderEncoder.setVertexBytes(&viewportSize, length: MemoryLayout<vector_uint2>.stride, index: 1)
+            
+            if texture != nil {
+                if let tex = textures[texture!] {
+                    data.hasTexture = 1
+                    renderEncoder.setFragmentTexture(tex, index: 1)
+                }
+            }
+            renderEncoder.setFragmentBytes(&data, length: MemoryLayout<RectUniform>.stride, index: 0)
+            
+            renderEncoder.setRenderPipelineState(polyState!)
+            renderEncoder.drawPrimitives(type: primitiveType, vertexStart: 0, vertexCount: vertexCount)
+        }
+        
+        vertexData = []
+        vertexCount = 0
     }
     
     /// Draws the given text
@@ -200,7 +298,7 @@ class MetalDraw2D
             data.fontSize.y = char.height
             data.color = color
 
-            let rect = Rect(x, y, char.width * adjScale, char.height * adjScale, scale: 1)
+            let rect = MRRect(x, y, char.width * adjScale, char.height * adjScale, scale: 1)
             let vertexData = createVertexData(rect)
 
             renderEncoder.setVertexBytes(vertexData, length: vertexData.count * MemoryLayout<Float>.stride, index: 0)
@@ -254,7 +352,7 @@ class MetalDraw2D
     }
     
     /// Creates vertex data for the given rectangle
-    func createVertexData(_ rect: Rect) -> [Float]
+    func createVertexData(_ rect: MRRect) -> [Float]
     {
         let left: Float  = -viewSize.x / 2.0 + rect.x
         let right: Float = left + rect.width
@@ -284,5 +382,71 @@ class MetalDraw2D
         #else
         metalView.setNeedsDisplay()
         #endif
+    }
+    
+    /// Create a texture and return its id
+    func createTexture(width: Int, height: Int) -> Int?
+    {
+        let textureDescriptor = MTLTextureDescriptor()
+        textureDescriptor.textureType = MTLTextureType.type2D
+        textureDescriptor.pixelFormat = MTLPixelFormat.bgra8Unorm
+        textureDescriptor.width = width == 0 ? 1 : width
+        textureDescriptor.height = height == 0 ? 1 : height
+        
+        textureDescriptor.usage = MTLTextureUsage.unknown
+        
+        guard let texture = device.makeTexture(descriptor: textureDescriptor) else {
+            return nil
+        }
+        
+        let id = textureIdCount
+        textures[id] = texture
+        textureIdCount += 1
+        return id
+    }
+    
+    /// Sets the render target
+    @discardableResult func setTarget(id: Int) -> Bool {
+        if id <= 0 {
+            target = nil
+        } else {
+            if textures.keys.contains(id) == false {
+                return false
+            } else {
+                target = id
+            }
+        }
+        return true
+    }
+    
+    /// Sets the current texture
+    @discardableResult func setTexture(id: Int) -> Bool {
+        if id <= 0 {
+            texture = nil
+        } else {
+            if textures.keys.contains(id) == false {
+                return false
+            } else {
+                texture = id
+            }
+        }
+        return true
+    }
+    
+    /// LoadTexture
+    func loadTexture(_ name: String, mipmaps: Bool = false, sRGB: Bool = false) -> Int?
+    {
+        let path = Bundle.main.path(forResource: name, ofType: "tiff")!
+        let data = NSData(contentsOfFile: path)! as Data
+        
+        let options: [MTKTextureLoader.Option : Any] = [.generateMipmaps : mipmaps, .SRGB : sRGB]
+        
+        if let texture = try? metalView.game.textureLoader.newTexture(data: data, options: options) {
+            let id = textureIdCount
+            textures[id] = texture
+            textureIdCount += 1
+            return id
+        }
+        return nil
     }
 }

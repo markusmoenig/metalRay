@@ -8,7 +8,7 @@
 import Foundation
 
 /// Rect class
-class Rect
+class MRRect
 {
     var x : Float
     var y: Float
@@ -25,7 +25,7 @@ class Rect
         x = 0; y = 0; width = 0; height = 0
     }
     
-    init(_ rect : Rect)
+    init(_ rect : MRRect)
     {
         x = rect.x; y = rect.y
         width = rect.width; height = rect.height
@@ -37,7 +37,7 @@ class Rect
     }
     
     /// Copy the content of the given rect
-    func copy(_ rect : Rect)
+    func copy(_ rect : MRRect)
     {
         x = rect.x; y = rect.y
         width = rect.width; height = rect.height
@@ -62,7 +62,7 @@ class Rect
     }
     
     /// Intersect the rects
-    func intersect(_ rect: Rect)
+    func intersect(_ rect: MRRect)
     {
         let left = max(x, rect.x)
         let top = max(y, rect.y)
@@ -82,7 +82,7 @@ class Rect
     }
     
     /// Merge the rects
-    func merge(_ rect: Rect)
+    func merge(_ rect: MRRect)
     {
         width = width > rect.width ? width : rect.width + (rect.x - x)
         height = height > rect.height ? height : rect.height + (rect.y - y)

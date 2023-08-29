@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD3C39AE2A9DB290007DF0F9 /* Test.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DD3C39AD2A9DB290007DF0F9 /* Test.tiff */; };
 		DD4B8C262A931CFC000E06A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C252A931CFC000E06A3 /* AppDelegate.swift */; };
 		DD4B8C282A931CFC000E06A3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C272A931CFC000E06A3 /* GameViewController.swift */; };
 		DD4B8C2B2A931CFC000E06A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C292A931CFC000E06A3 /* Main.storyboard */; };
@@ -66,9 +67,9 @@
 		DD4B8CA82A937772000E06A3 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CA72A937772000E06A3 /* game.swift */; };
 		DD4B8CA92A937772000E06A3 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CA72A937772000E06A3 /* game.swift */; };
 		DD4B8CAA2A937772000E06A3 /* game.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CA72A937772000E06A3 /* game.swift */; };
-		DD4B8CAD2A938420000E06A3 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* globals.swift */; };
-		DD4B8CAE2A938420000E06A3 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* globals.swift */; };
-		DD4B8CAF2A938420000E06A3 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* globals.swift */; };
+		DD4B8CAD2A938420000E06A3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* Globals.swift */; };
+		DD4B8CAE2A938420000E06A3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* Globals.swift */; };
+		DD4B8CAF2A938420000E06A3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8CAC2A938420000E06A3 /* Globals.swift */; };
 		DD4B8CB12A93885F000E06A3 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8CB02A93885F000E06A3 /* Readme.md */; };
 		DD4B8CB22A93885F000E06A3 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8CB02A93885F000E06A3 /* Readme.md */; };
 		DD4B8CB32A93885F000E06A3 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8CB02A93885F000E06A3 /* Readme.md */; };
@@ -78,6 +79,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD3C39AD2A9DB290007DF0F9 /* Test.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Test.tiff; sourceTree = "<group>"; };
 		DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		DD4B8C1B2A931CFA000E06A3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		DD4B8C1C2A931CFA000E06A3 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
@@ -109,11 +111,12 @@
 		DD4B8C942A935302000E06A3 /* OpenSans.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = OpenSans.tiff; sourceTree = "<group>"; };
 		DD4B8C9E2A936C94000E06A3 /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 		DD4B8CA22A936E4F000E06A3 /* game.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = game.c; sourceTree = "<group>"; };
-		DD4B8CA62A937391000E06A3 /* raylib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = raylib.h; sourceTree = "<group>"; };
 		DD4B8CA72A937772000E06A3 /* game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game.swift; sourceTree = "<group>"; };
-		DD4B8CAC2A938420000E06A3 /* globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globals.swift; sourceTree = "<group>"; };
+		DD4B8CAC2A938420000E06A3 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		DD4B8CB02A93885F000E06A3 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		DD4B8CB42A94B2D3000E06A3 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		DD4B8CBC2A97126E000E06A3 /* header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = header.h; sourceTree = "<group>"; };
+		DD4B8CBD2A9C3BD9000E06A3 /* metalray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = metalray.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +149,7 @@
 			children = (
 				DD4B8CB02A93885F000E06A3 /* Readme.md */,
 				DD4B8C192A931CFA000E06A3 /* metalRay Shared */,
-				DD4B8C9C2A935617000E06A3 /* GameC */,
+				DD4B8C9C2A935617000E06A3 /* Game */,
 				DD4B8C9B2A93560A000E06A3 /* GameSwift */,
 				DD4B8C442A931CFC000E06A3 /* metalRay macOS */,
 				DD4B8C242A931CFC000E06A3 /* metalRay iOS */,
@@ -163,7 +166,9 @@
 				DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */,
 				DD4B8C1C2A931CFA000E06A3 /* ShaderTypes.h */,
 				DD4B8C1D2A931CFC000E06A3 /* Assets.xcassets */,
+				DD4B8CAC2A938420000E06A3 /* Globals.swift */,
 				DD4B8C842A934CFD000E06A3 /* Bridge.h */,
+				DD4B8CBD2A9C3BD9000E06A3 /* metalray.h */,
 				DD4B8C9D2A936C81000E06A3 /* Functions */,
 				DD4B8C692A93256D000E06A3 /* Draw */,
 				DD4B8C892A934DB6000E06A3 /* Misc */,
@@ -247,19 +252,19 @@
 		DD4B8C9B2A93560A000E06A3 /* GameSwift */ = {
 			isa = PBXGroup;
 			children = (
-				DD4B8CAC2A938420000E06A3 /* globals.swift */,
-				DD4B8CA72A937772000E06A3 /* game.swift */,
 			);
 			path = GameSwift;
 			sourceTree = "<group>";
 		};
-		DD4B8C9C2A935617000E06A3 /* GameC */ = {
+		DD4B8C9C2A935617000E06A3 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				DD4B8CAB2A937B98000E06A3 /* include */,
+				DD4B8CA72A937772000E06A3 /* game.swift */,
 				DD4B8CA22A936E4F000E06A3 /* game.c */,
+				DD4B8CBC2A97126E000E06A3 /* header.h */,
+				DD3C39AD2A9DB290007DF0F9 /* Test.tiff */,
 			);
-			path = GameC;
+			path = Game;
 			sourceTree = "<group>";
 		};
 		DD4B8C9D2A936C81000E06A3 /* Functions */ = {
@@ -269,14 +274,6 @@
 				DD4B8C9E2A936C94000E06A3 /* Drawing.swift */,
 			);
 			path = Functions;
-			sourceTree = "<group>";
-		};
-		DD4B8CAB2A937B98000E06A3 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				DD4B8CA62A937391000E06A3 /* raylib.h */,
-			);
-			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +408,7 @@
 				DD4B8C972A935302000E06A3 /* OpenSans.json in Resources */,
 				DD4B8CB32A93885F000E06A3 /* Readme.md in Resources */,
 				DD4B8C4B2A931CFC000E06A3 /* Main.storyboard in Resources */,
+				DD3C39AE2A9DB290007DF0F9 /* Test.tiff in Resources */,
 				DD4B8C582A931CFC000E06A3 /* Assets.xcassets in Resources */,
 				DD4B8C552A931CFC000E06A3 /* ShaderTypes.h in Resources */,
 			);
@@ -431,7 +429,7 @@
 				DD4B8C8B2A934DE3000E06A3 /* Misc.swift in Sources */,
 				DD4B8C6B2A932583000E06A3 /* RayView.swift in Sources */,
 				DD4B8C262A931CFC000E06A3 /* AppDelegate.swift in Sources */,
-				DD4B8CAD2A938420000E06A3 /* globals.swift in Sources */,
+				DD4B8CAD2A938420000E06A3 /* Globals.swift in Sources */,
 				DD4B8CA82A937772000E06A3 /* game.swift in Sources */,
 				DD4B8C7D2A934BA3000E06A3 /* MetalStates.swift in Sources */,
 				DD4B8C762A9327BF000E06A3 /* Game.swift in Sources */,
@@ -454,7 +452,7 @@
 				DD4B8C8C2A934DE3000E06A3 /* Misc.swift in Sources */,
 				DD4B8C6C2A932583000E06A3 /* RayView.swift in Sources */,
 				DD4B8C362A931CFC000E06A3 /* AppDelegate.swift in Sources */,
-				DD4B8CAE2A938420000E06A3 /* globals.swift in Sources */,
+				DD4B8CAE2A938420000E06A3 /* Globals.swift in Sources */,
 				DD4B8CA92A937772000E06A3 /* game.swift in Sources */,
 				DD4B8C7E2A934BA3000E06A3 /* MetalStates.swift in Sources */,
 				DD4B8C772A9327BF000E06A3 /* Game.swift in Sources */,
@@ -477,7 +475,7 @@
 				DD4B8C8D2A934DE3000E06A3 /* Misc.swift in Sources */,
 				DD4B8C6D2A932583000E06A3 /* RayView.swift in Sources */,
 				DD4B8C462A931CFC000E06A3 /* AppDelegate.swift in Sources */,
-				DD4B8CAF2A938420000E06A3 /* globals.swift in Sources */,
+				DD4B8CAF2A938420000E06A3 /* Globals.swift in Sources */,
 				DD4B8CAA2A937772000E06A3 /* game.swift in Sources */,
 				DD4B8C7F2A934BA3000E06A3 /* MetalStates.swift in Sources */,
 				DD4B8C782A9327C0000E06A3 /* Game.swift in Sources */,
@@ -652,7 +650,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G6R6L3VH62;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "GameC/**";
+				HEADER_SEARCH_PATHS = (
+					"\"metalRay Shared\"",
+					"Game/**",
+				);
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -684,7 +685,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G6R6L3VH62;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "GameC/**";
+				HEADER_SEARCH_PATHS = (
+					"\"metalRay Shared\"",
+					"Game/**",
+				);
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -717,7 +721,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G6R6L3VH62;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "GameC/**";
+				HEADER_SEARCH_PATHS = (
+					"Game/**",
+					"\"metalRay Shared\"",
+				);
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
@@ -746,7 +753,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G6R6L3VH62;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "GameC/**";
+				HEADER_SEARCH_PATHS = (
+					"Game/**",
+					"\"metalRay Shared\"",
+				);
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
@@ -779,7 +789,10 @@
 				DEVELOPMENT_TEAM = G6R6L3VH62;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "GameC/**";
+				HEADER_SEARCH_PATHS = (
+					"Game/**",
+					"\"metalRay Shared\"",
+				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -810,7 +823,10 @@
 				DEVELOPMENT_TEAM = G6R6L3VH62;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "GameC/**";
+				HEADER_SEARCH_PATHS = (
+					"Game/**",
+					"\"metalRay Shared\"",
+				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;

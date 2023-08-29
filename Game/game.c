@@ -6,18 +6,19 @@
 //
 
 #include <stdio.h>
-
-#include <raylib.h>
+#include <metalray.h>
 
 float rotation = 0.0;
 
-int Update(void) {
+void Update(void) {
     
     rotation += 0.2;
     
     BeginDrawing();
-    ClearBackground(RAYWHITE);
-    
+    Clear(ORANGE);
+    EndDrawing();
+
+    /*
     int screenWidth = GetScreenWidth();
     
     // Circle shapes and lines
@@ -45,8 +46,6 @@ int Update(void) {
     DrawPolyLinesEx((Vector2){ screenWidth/4.0f*3, 330 }, 6, 85, rotation, 6, BEIGE);
     
     DrawLine(18, 42, screenWidth - 18, 42, BLACK);
-
-    EndDrawing();
-    
-    return 0;
+     */
+    //EndDrawing();
 }
