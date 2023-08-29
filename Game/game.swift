@@ -11,6 +11,9 @@ var textureId : Int = -1
 var rot : Float = 0.0
 
 func initGame() {
+    // Call the C Init, remove if not needed
+    InitGame();
+    
     textureId = LoadTexture(name: "Test")
 //    textureId = CreateTexture(width: 400, height: 400)
 }
@@ -18,7 +21,7 @@ func initGame() {
 func updateGame() {
     
     // Call the C Update, remove if not needed
-    Update();
+    UpdateGame();
     
 //    SetTarget(id: textureId)
 //    BeginDrawing()
@@ -34,4 +37,9 @@ func updateGame() {
     DrawRectRotCenter(rect: Rectangle(x: 100, y: 100, width: 400, height: 400), color: GREEN, rot: rot)
     SetTexture(id: 0)
     EndDrawing()
+}
+
+func deinitGame() {
+    // Call the C Deinit, remove if not needed
+    DeinitGame();
 }

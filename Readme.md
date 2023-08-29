@@ -3,7 +3,7 @@
 
 **metalRay** is a bare bones game framework for the Apple ecosystem. If you want to code games close to the Metal with a convenient API (in the tradition of frameworks like [raylib](https://raylib.com))  you will feel right at home.
 
-You can write games in Swift and in C directly in Xcode while being able to create C style interoperabe memory structures and pass them to your Metal shaders.
+You can write games in Swift and in C directly in Xcode while being able to create C style interoperable memory structures and pass them to your Metal shaders.
 
 *metalRay* focuses right now on 2D drawing, 3D support will be integrated once 2D is stable.
 
@@ -20,7 +20,9 @@ You can write games in Swift and in C directly in Xcode while being able to crea
 
 I like to write games low level, and all the popular convenience frameworks out there (SDL2, raylib etc.) are not based on Metal but OpenGL, which makes iOS and tvOS compatibility problematic.
 
-Also being able to deploy your games easily to macOS, iOS and tvOS is a major advantage.
+And being nostalgic, I also really enjoy coding in C again sometimes. Especially for implementing some of the classics. Get your hands dirty!
+
+Being able to deploy your games easily to macOS, iOS and tvOS is a major advantage compared to the mostly limited cross-platform alternatives.
 
 ## How to use
 
@@ -39,6 +41,17 @@ Place all your resources somewhere in the *Game* folder.
 The Xcode project contains targets for macOS, iOS and tvOS.
 
 I will soon add some Swift and C examples to the project.
+
+## Status
+
+- [x] Render Targets
+- [x] Textures
+- [x] Rectangle Drawing
+- [ ] SDF based Shapes
+- [ ] Custom Shaders
+- [ ] 2D Physics
+- [ ] Tiled Import
+- [ ] 3D Support
 
 ---
 

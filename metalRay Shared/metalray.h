@@ -8,7 +8,9 @@
 #ifndef metalray_h
 #define metalray_h
 
-void Update(void);
+void InitGame(void);
+void UpdateGame(void);
+void DeinitGame(void);
 
 // Some of the below is taken from raylib.h, under the zlib license and copyright by
 
