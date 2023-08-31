@@ -48,6 +48,7 @@ I will soon add some Swift and C examples to the project.
 - [x] Textures
 - [x] Rectangle Drawing
 - [x] SDF Text Drawing
+- [ ] Input Events (macOS, iOS, tvOS)
 - [ ] SDF based Shapes
 - [ ] Custom Shaders
 - [ ] 2D Physics
