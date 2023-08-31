@@ -26,8 +26,8 @@ Being able to deploy your games easily to macOS, iOS and tvOS is a major advanta
 
 #### Downsides
 
-* The API is implemented in Swift, however with a C style calling convention to make it work in both Swift and C. So no swiftiniess and functions return -1 if something goes wrong (and not null). Texts are passed as C Strings (use *ToCStr()* to convert Strings to C strings).
-* While it is super convenient to code your game directly in Xcode, the downside is that updating you have to merge updates of this repo into your fork. Basically merge everything outside the *Game* folder (Swift, C, Metal, .h) files and keep your files which should all be located in the *Game* folder.
+* The API is implemented in Swift, however with a C style calling convention to make it work in both Swift and C. So no swiftiniess and functions return -1 if something goes wrong (and not null). Texts are passed as C Strings (use *toCStr()* to convert Strings to C strings).
+* While it is super convenient to code your game directly in Xcode, the downside is that merging your fork of this repo can be a bit tedious (when updated). Basically keep your files limited to the *Game* folder and merge everything outside the *Game* folder (Swift, C, Metal, .h) files.
 
 ## How to use
 
