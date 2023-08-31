@@ -47,6 +47,7 @@ I will soon add some Swift and C examples to the project.
 - [x] Render Targets
 - [x] Textures
 - [x] Rectangle Drawing
+- [x] SDF Text Drawing
 - [ ] SDF based Shapes
 - [ ] Custom Shaders
 - [ ] 2D Physics
