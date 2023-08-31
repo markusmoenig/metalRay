@@ -40,12 +40,12 @@ class Game: NSObject, MTKViewDelegate {
         #endif
         
         super.init()
-        
+
+        textureLoader = MTKTextureLoader(device: rayView.device!)
+
         rayView.game = self
         metalStates = MetalStates(rayView)
         draw2D = MetalDraw2D(rayView)
-
-        textureLoader = MTKTextureLoader(device: rayView.device!)
         
         globalGame = self
         

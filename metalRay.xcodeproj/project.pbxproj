@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DD3C39AE2A9DB290007DF0F9 /* Test.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DD3C39AD2A9DB290007DF0F9 /* Test.tiff */; };
+		DD3C39B22AA03513007DF0F9 /* Square.json in Resources */ = {isa = PBXBuildFile; fileRef = DD3C39B02AA03513007DF0F9 /* Square.json */; };
+		DD3C39B32AA03513007DF0F9 /* Square.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DD3C39B12AA03513007DF0F9 /* Square.tiff */; };
 		DD4B8C262A931CFC000E06A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C252A931CFC000E06A3 /* AppDelegate.swift */; };
 		DD4B8C282A931CFC000E06A3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B8C272A931CFC000E06A3 /* GameViewController.swift */; };
 		DD4B8C2B2A931CFC000E06A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD4B8C292A931CFC000E06A3 /* Main.storyboard */; };
@@ -81,6 +83,8 @@
 /* Begin PBXFileReference section */
 		DD3C39AD2A9DB290007DF0F9 /* Test.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Test.tiff; sourceTree = "<group>"; };
 		DD3C39AF2A9DF0FA007DF0F9 /* metalray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = metalray.h; sourceTree = "<group>"; };
+		DD3C39B02AA03513007DF0F9 /* Square.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Square.json; sourceTree = "<group>"; };
+		DD3C39B12AA03513007DF0F9 /* Square.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Square.tiff; sourceTree = "<group>"; };
 		DD4B8C1A2A931CFA000E06A3 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		DD4B8C1B2A931CFA000E06A3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		DD4B8C1C2A931CFA000E06A3 /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 			children = (
 				DD4B8C932A935302000E06A3 /* OpenSans.json */,
 				DD4B8C942A935302000E06A3 /* OpenSans.tiff */,
+				DD3C39B02AA03513007DF0F9 /* Square.json */,
+				DD3C39B12AA03513007DF0F9 /* Square.tiff */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -410,9 +416,11 @@
 				DD4B8C972A935302000E06A3 /* OpenSans.json in Resources */,
 				DD4B8CB32A93885F000E06A3 /* Readme.md in Resources */,
 				DD4B8C4B2A931CFC000E06A3 /* Main.storyboard in Resources */,
+				DD3C39B22AA03513007DF0F9 /* Square.json in Resources */,
 				DD3C39AE2A9DB290007DF0F9 /* Test.tiff in Resources */,
 				DD4B8C582A931CFC000E06A3 /* Assets.xcassets in Resources */,
 				DD4B8C552A931CFC000E06A3 /* ShaderTypes.h in Resources */,
+				DD3C39B32AA03513007DF0F9 /* Square.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

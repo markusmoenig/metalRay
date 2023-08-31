@@ -55,12 +55,6 @@ typedef struct Rectangle {
     float height;           // Rectangle height
 } Rectangle;
 
-// Functions
-
-void BeginDrawing(void);
-void EndDrawing(void);
-void Clear(Color color);
-
 // Enums
 
 // Some Basic Colors

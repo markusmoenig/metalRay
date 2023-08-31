@@ -56,7 +56,6 @@ func CreateTexture(width: Int, height: Int) -> Int {
 @_silgen_name("LoadTexture")
 func LoadTexture(name: UnsafePointer<Int8>) -> Int {
     if let name = String(cString: name, encoding: .utf8) {
-        print(name)
         if let game = globalGame {
             if let id = game.draw2D.loadTexture(name) {
                 return id
@@ -82,6 +81,43 @@ func LoadTexture(name: UnsafePointer<Int8>) -> Int {
         return game.draw2D.setTexture(id: id)
     }
     return false
+}
+
+/// SetFont
+@_silgen_name("SetFont")
+@discardableResult func SetFont(name: UnsafePointer<Int8>) -> Bool {
+    if let name = String(cString: name, encoding: .utf8) {
+        if let game = globalGame {
+            return game.draw2D.setFont(name: name.lowercased())
+        }
+    }
+    return false
+}
+
+/// SetFont
+@_silgen_name("GetFontSize")
+@discardableResult func GetFontSize(text: UnsafePointer<Int8>, size: Float) -> Vector2 {
+    if let text = String(cString: text, encoding: .utf8) {
+        if let game = globalGame {
+            let rc = game.draw2D.getTextSize(text: text, size: size)
+            return Vector2(x: rc.x, y: rc.y)
+        }
+    }
+    return Vector2(x: 0, y: 0)
+}
+
+/// DrawText
+@_silgen_name("DrawText")
+func DrawText(pos: Vector2, text: UnsafePointer<Int8>, size: Float, color: Color) {
+    if let game = globalGame {
+        if let text = String(cString: text, encoding: .utf8) {
+            let c = colorToFloat4(color)
+            
+            //game.draw2D.startShape(type: .triangle)
+            game.draw2D.drawText(position: float2(pos.x, pos.y), text: text, size: size, color: c)
+            //game.draw2D.endShape()
+        }
+    }
 }
 
 /// DrawRect

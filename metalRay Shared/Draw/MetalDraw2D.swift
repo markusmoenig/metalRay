@@ -47,6 +47,7 @@ class MetalDraw2D
     var commandBuffer   : MTLCommandBuffer! = nil
     
     var polyState       : MTLRenderPipelineState? = nil
+    var textState       : MTLRenderPipelineState? = nil
 
     var scaleFactor     : Float
     var viewSize        = float2(0,0)
@@ -62,6 +63,7 @@ class MetalDraw2D
     var target          : Int? = nil
     var texture         : Int? = nil
 
+    var fonts           : [String:Font] = [:]
     var font            : Font! = nil
 
     init(_ metalView: RayView)
@@ -111,15 +113,26 @@ class MetalDraw2D
                 return nil
             }
             
-            let function = defaultLibrary.makeFunction( name: "poly2DFragment" )
+            var function = defaultLibrary.makeFunction( name: "poly2DFragment" )
             polyState = createNewPipelineState(function)
+            
+            function = defaultLibrary.makeFunction( name: "m4mTextDrawable" )
+            textState = createNewPipelineState(function)
         }
+        
+        // Init the SDF fonts
+        
+        var font = Font(name: "OpenSans", game: metalView.game)
+        fonts["opensans"] = font
+        
+        font = Font(name: "Square", game: metalView.game)
+        fonts["square"] = font
+        
+        self.font = font
     }
     
     @discardableResult func encodeStart(_ clearColor: float4 = float4(0.125, 0.129, 0.137, 1)) -> MTLRenderCommandEncoder?
     {
-        if font == nil { font = Font(name: "OpenSans", game: metalView.game) }
-                
         viewportSize = vector_uint2( UInt32(metalView.bounds.width), UInt32(metalView.bounds.height) )
         viewSize = float2(Float(metalView.bounds.width), Float(metalView.bounds.height))
 
@@ -203,14 +216,6 @@ class MetalDraw2D
         //        left, top, 0.0, 1.0,
         //        right, top, 1.0, 1.0,
         
-        func xToMetal(_ v: Float) -> Float {
-            -viewSize.x / 2.0 + v// * scaleFactor
-        }
-        
-        func yToMetal(_ v: Float) -> Float {
-            viewSize.y / 2.0 - v// * scaleFactor
-        }
-        
         if rot == 0.0 {
             let arr : [Float ] = [
                 xToMetal(rect.x + rect.width), yToMetal(rect.y + rect.height), 1.0, 0.0, c.x, c.y, c.z, c.w,
@@ -223,7 +228,7 @@ class MetalDraw2D
             ]
             
             vertexData.append(contentsOf: arr)
-            vertexCount += arr.count
+            vertexCount += 6
         } else {
                         
             let radians = rot.degreesToRadians
@@ -254,7 +259,7 @@ class MetalDraw2D
             ]
             
             vertexData.append(contentsOf: arr)
-            vertexCount += arr.count
+            vertexCount += 6
         }
     }
     
@@ -296,10 +301,21 @@ class MetalDraw2D
             data.fontPos.y = char.y
             data.fontSize.x = char.width
             data.fontSize.y = char.height
-            data.color = color
 
             let rect = MRRect(x, y, char.width * adjScale, char.height * adjScale, scale: 1)
-            let vertexData = createVertexData(rect)
+            
+            let c = color
+            
+            vertexData = [
+                xToMetal(rect.x + rect.width), yToMetal(rect.y + rect.height), 1.0, 0.0, c.x, c.y, c.z, c.w,
+                xToMetal(rect.x), yToMetal(rect.y + rect.height), 0.0, 0.0, c.x, c.y, c.z, c.w,
+                xToMetal(rect.x), yToMetal(rect.y), 0.0, 1.0, c.x, c.y, c.z, c.w,
+                 
+                xToMetal(rect.x + rect.width), yToMetal(rect.y + rect.height), 1.0, 0.0, c.x, c.y, c.z, c.w,
+                xToMetal(rect.x), yToMetal(rect.y), 0.0, 1.0, c.x, c.y, c.z, c.w,
+                xToMetal(rect.x + rect.width), yToMetal(rect.y), 1.0, 1.0, c.x, c.y, c.z, c.w,
+            ]
+            vertexCount = 6
 
             renderEncoder.setVertexBytes(vertexData, length: vertexData.count * MemoryLayout<Float>.stride, index: 0)
             renderEncoder.setVertexBytes(&viewportSize, length: MemoryLayout<vector_uint2>.stride, index: 1)
@@ -307,7 +323,7 @@ class MetalDraw2D
             renderEncoder.setFragmentBytes(&data, length: MemoryLayout<TextUniform>.stride, index: 0)
             renderEncoder.setFragmentTexture(font!.atlas, index: 1)
 
-            renderEncoder.setRenderPipelineState(metalView.game.metalStates.getState(state: .DrawTextChar))
+            renderEncoder.setRenderPipelineState(textState!)
             renderEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 6)
         }
         
@@ -327,11 +343,26 @@ class MetalDraw2D
                 }
             }
         }
+    
+        vertexData = []
+        vertexCount = 0
+    }
+    
+    /// Sets the current font
+    func setFont(name: String) -> Bool
+    {
+        if let font = fonts[name] {
+            self.font = font
+            return true
+        }
+        return false
     }
     
     /// Gets the width of the given text
-    func getTextWidth(text: String, size: Float) -> Float
+    func getTextSize(text: String, size: Float) -> float2
     {
+        var rc = float2()
+        
         if let font = font {
          
             let scale : Float = (1.0 / font.bmFont!.common.lineHeight) * size
@@ -346,31 +377,10 @@ class MetalDraw2D
                 }
             }
             
-            return posX
+            rc.x = posX
+            rc.y = font.bmFont!.common.lineHeight
         }
-        return 0
-    }
-    
-    /// Creates vertex data for the given rectangle
-    func createVertexData(_ rect: MRRect) -> [Float]
-    {
-        let left: Float  = -viewSize.x / 2.0 + rect.x
-        let right: Float = left + rect.width
-        
-        let top: Float = viewSize.y / 2.0 - rect.y
-        let bottom: Float = top - rect.height
-
-        let quadVertices: [Float] = [
-            right, bottom, 1.0, 0.0,
-            left, bottom, 0.0, 0.0,
-            left, top, 0.0, 1.0,
-            
-            right, bottom, 1.0, 0.0,
-            left, top, 0.0, 1.0,
-            right, top, 1.0, 1.0,
-        ]
-        
-        return quadVertices
+        return rc
     }
     
     /// Updates the view
@@ -448,5 +458,13 @@ class MetalDraw2D
             return id
         }
         return nil
+    }
+    
+    func xToMetal(_ v: Float) -> Float {
+        -viewSize.x / 2.0 + v// * scaleFactor
+    }
+    
+    func yToMetal(_ v: Float) -> Float {
+        viewSize.y / 2.0 - v// * scaleFactor
     }
 }

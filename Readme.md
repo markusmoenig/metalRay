@@ -111,13 +111,20 @@ GetScreenWidth();
 GetScreenHeight();
 ```
 
-## Drawing Shapes
+## Drawing
 
 ```swift
 // Starts drawing, if you change the render target you need to end drawing to your current target first.
 BeginDrawing();
 // End drawing
 EndDrawing();
+
+// Sets the current font
+SetFont(name: CString);
+// Returns the size of the given text
+GetTextSize(text: CString, size: Float) -> Vector2
+// Draws the text of the given size at the given position
+DrawText(pos: Vector2, text: CString, size: Float, color: Color);
 
 // Clears the current render target in the given color
 Clear(color: Color);
@@ -134,7 +141,7 @@ DrawRectRotCenter(rect: Rectangle, color: Color, rot: Int);
 // Creates an RGBA8 texture of the given width and height and returns its id. Returns -1 if unsuccessful.
 CreateTexture(width: Int, height: Int) -> Int;
 // Load an image in the Xcode project into a texture and returns its id. Returns -1 if unsuccessful.
-LoadTexture(name: String) -> Int;
+LoadTexture(name: CString) -> Int;
 
 // Makes the texture of the given id the new render target. Use 0 to switch back to the default viewport. Make sure to end and restart drawing.
 SetTarget(id: Int) -> Bool;

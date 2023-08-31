@@ -12,6 +12,12 @@
 
 typedef struct
 {
+    vector_float2   position;
+    vector_float2   textureCoordinate;
+} VertexUniform;
+
+typedef struct
+{
     vector_float2   screenSize;
     vector_float2   pos;
     vector_float2   size;
@@ -87,7 +93,6 @@ typedef struct
     vector_float2   atlasSize;
     vector_float2   fontPos;
     vector_float2   fontSize;
-    vector_float4   color;
 } TextUniform;
 
 typedef struct

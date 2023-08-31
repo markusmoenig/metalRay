@@ -463,10 +463,12 @@ float m4mMedian(float r, float g, float b) {
     return max(min(r, g), min(max(r, g), b));
 }
 
-fragment float4 m4mTextDrawable(RasterizerData in [[stage_in]],
+fragment float4 m4mTextDrawable(VertexOut in [[stage_in]],
                                 constant TextUniform *data [[ buffer(0) ]],
                                 texture2d<float> inTexture [[ texture(1) ]])
 {
+    float4 color = in.color;
+
     constexpr sampler textureSampler (mag_filter::linear,
                                       min_filter::linear);
     
@@ -480,7 +482,10 @@ fragment float4 m4mTextDrawable(RasterizerData in [[stage_in]],
         
     float d = m4mMedian(sample.r, sample.g, sample.b) - 0.5;
     float w = clamp(d/fwidth(d) + 0.5, 0.0, 1.0);
-    return float4( data->color.x, data->color.y, data->color.z, w * data->color.w );
+    
+    color.w *= w;
+    
+    return color;
 }
 
 kernel void makeCGIImage(

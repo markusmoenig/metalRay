@@ -36,7 +36,7 @@ class MetalStates {
 
         pipelineStateDescriptor = MTLRenderPipelineDescriptor()
         pipelineStateDescriptor.vertexFunction = vertexFunction
-        //        pipelineStateDescriptor.fragmentFunction = fragmentFunction
+//        pipelineStateDescriptor.fragmentFunction = fragmentFunction
         pipelineStateDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.bgra8Unorm;
         
         pipelineStateDescriptor.colorAttachments[0].isBlendingEnabled = true
@@ -76,11 +76,11 @@ class MetalStates {
         var renderPipelineState : MTLRenderPipelineState?
         
         do {
-            //renderPipelineState = try device.makeComputePipelineState( function: function! )
+            //renderPipelineState = try rayView.device?.makeComputePipelineState( function: function! )
             pipelineStateDescriptor.fragmentFunction = function
-            renderPipelineState = try rayView.device!.makeRenderPipelineState( descriptor: pipelineStateDescriptor )
+            renderPipelineState = try rayView.device?.makeRenderPipelineState( descriptor: pipelineStateDescriptor )
         } catch {
-            print( "computePipelineState failed" )
+            print( "pipelineState failed" )
             return nil
         }
         
