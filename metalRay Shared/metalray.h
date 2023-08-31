@@ -10,10 +10,17 @@
 #ifndef metalray_h
 #define metalray_h
 
+#include <stdbool.h>
+
 // Device
 
-extern int GetScreenWidth(void);
-extern int GetScreenHeight(void);
+extern Vector2 GetScreenSize(void);
+
+extern bool HasTouch(void);
+extern bool HasTap(void);
+extern bool HasDoubleTap(void);
+extern bool HasTouchEnded(void);
+extern Vector2 GetTouchPos(void);
 
 // Drawing
 
@@ -22,6 +29,7 @@ extern void EndDrawing(void);
 
 extern void Clear(Color);
 
+extern void DrawRect(Rectangle rect, Color color);
 extern void DrawRectRotCenter(Rectangle rect, Color color, float rot);
 
 extern void SetFont(char *fontname);
@@ -30,8 +38,11 @@ extern void DrawText(Vector2 pos, char *text, float size, Color color);
 
 // Textures
 
+extern int CreateTexture(int width, int height);
+
 extern int LoadTexture(char *texture);
 
-extern int SetTexture(int id);
+extern bool SetTexture(int id);
+extern bool SetTarget(int id);
 
 #endif /* metalray_h */

@@ -16,10 +16,11 @@ public class RayView       : MTKView
     
     var mouseIsDown         : Bool = false
     var mousePos            = float2(0, 0)
-    
+
     var hasTap              : Bool = false
     var hasDoubleTap        : Bool = false
-    
+    var hasTouchEnded       : Bool = false
+
     var buttonDown          : String? = nil
     var swipeDirection      : String? = nil
 
@@ -31,6 +32,13 @@ public class RayView       : MTKView
         hasDoubleTap  = false
         buttonDown = nil
         swipeDirection = nil
+    }
+    
+    func updated()
+    {
+        hasTap = false
+        hasDoubleTap = false
+        hasTouchEnded = false
     }
 
     #if os(OSX)
@@ -74,44 +82,27 @@ public class RayView       : MTKView
     }
         
     override public func mouseDown(with event: NSEvent) {
-        if game.state == .Running {
-            if event.clickCount == 2 {
-                hasDoubleTap = true
-            } else {
-                mouseIsDown = true
-                setMousePos(event)
-            }
-        } else
-        if game.state == .Idle {
-            /*
-            if let asset = game.assetFolder.current, asset.type == .Map {
-                setMousePos(event)
-                game.mapBuilder.mapPreview.mouseDown(mousePos.x, mousePos.y)
-            }*/
+        if event.clickCount == 2 {
+            hasDoubleTap = true
+        } else {
+            hasTap = true
+            mouseIsDown = true
+            setMousePos(event)
         }
+    }
+    
+    override public func mouseMoved(with event: NSEvent) {
+        setMousePos(event)
     }
     
     override public func mouseDragged(with event: NSEvent) {
-        if game.state == .Running && mouseIsDown {
-            setMousePos(event)
-        }
-        
-        if game.state == .Idle {
-            /*
-            if let asset = game.assetFolder.current, asset.type == .Map {
-                setMousePos(event)
-                game.mapBuilder.mapPreview.mouseDown(mousePos.x, mousePos.y)
-            }*/
-        }
+        setMousePos(event)
     }
     
     override public func mouseUp(with event: NSEvent) {
-        if game.state == .Running {
-            mouseIsDown = false
-            hasTap = false
-            hasDoubleTap = false
-            setMousePos(event)
-        }
+        mouseIsDown = false
+        hasTouchEnded = true
+        setMousePos(event)
     }
     
     override public func flagsChanged(with event: NSEvent) {
@@ -173,15 +164,15 @@ public class RayView       : MTKView
     {
         if recognizer.numberOfTouches == 1 {
             hasTap = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 / 60.0) {
-                self.hasTap = false
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 / 60.0) {
+//                self.hasTap = false
+//            }
         } else
         if recognizer.numberOfTouches >= 1 {
             hasDoubleTap = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 / 60.0) {
-                self.hasDoubleTap = false
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 / 60.0) {
+//                self.hasDoubleTap = false
+//            }
         }
     }
     
@@ -196,53 +187,30 @@ public class RayView       : MTKView
     
     var firstTouch = float2(0,0)
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        /*
+        
         mouseIsDown = true
         if let touch = touches.first {
             let point = touch.location(in: self)
             setMousePos(Float(point.x), Float(point.y))
             
-            if game.state == .Idle {
-                firstTouch.x = mousePos.x
-                firstTouch.y = mousePos.y
-                if let asset = game.assetFolder.current, asset.type == .Map {
-                    if let map = asset.map {
-                        let coords = map.reverseCoordinates(mousePos.x, mousePos.y)
-                        game.tempText = "\(coords.x) x \(coords.y)"
-                        game.tempTextChanged.send()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                            self.game.tempText = ""
-                            self.game.tempTextChanged.send()
-                        }
-                    }
-                }
-            }
-        }*/
+            firstTouch.x = mousePos.x
+            firstTouch.y = mousePos.y
+        }
     }
     
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        /*
         if let touch = touches.first {
             let point = touch.location(in: self)
             setMousePos(Float(point.x), Float(point.y))
-            if game.state == .Idle {
-                if let asset = game.assetFolder.current, asset.type == .Map {
-                    if let map = asset.map {
-                        map.camera2D.xOffset += mousePos.x - firstTouch.x
-                        map.camera2D.yOffset += mousePos.y - firstTouch.y
-                        
-                        firstTouch.x = mousePos.x
-                        firstTouch.y = mousePos.y
-
-                        game.mapBuilder.createPreview(map, true)
-                    }
-                }
-            }
-        }*/
+            
+            firstTouch.x = mousePos.x
+            firstTouch.y = mousePos.y
+        }
     }
     
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         mouseIsDown = false
+        hasTouchEnded = true
         if let touch = touches.first {
             let point = touch.location(in: self)
                 setMousePos(Float(point.x), Float(point.y))

@@ -53,8 +53,9 @@ class Game: NSObject, MTKViewDelegate {
     }
     
     func draw(in view: MTKView) {
-        //drawables.drawBox(position: float2(100, 100), size: float2(500, 200))
         updateGame()
+        
+        rayView.updated()
     }
     
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {

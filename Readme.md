@@ -24,6 +24,11 @@ And being nostalgic, I also really enjoy coding in C again sometimes. Especially
 
 Being able to deploy your games easily to macOS, iOS and tvOS is a major advantage compared to the mostly limited cross-platform alternatives.
 
+#### Downsides
+
+* The API is implemented in Swift, however with a C style calling convention to make it work in both Swift and C. So no swiftiniess and functions return -1 if something goes wrong (and not null). Texts are passed as C Strings (use *ToCStr()* to convert Strings to C strings).
+* While it is super convenient to code your game directly in Xcode, the downside is that updating you have to merge updates of this repo into your fork. Basically merge everything outside the *Game* folder (Swift, C, Metal, .h) files and keep your files which should all be located in the *Game* folder.
+
 ## How to use
 
 Fork this repository and open the Xcode project. All game related functions are inside the **Game** folder
@@ -48,7 +53,7 @@ I will soon add some Swift and C examples to the project.
 - [x] Textures
 - [x] Rectangle Drawing
 - [x] SDF Text Drawing
-- [ ] Input Events (macOS, iOS, tvOS)
+- [x] Input Events Partially implemented (macOS, iOS, tvOS)
 - [ ] SDF based Shapes
 - [ ] Custom Shaders
 - [ ] 2D Physics
@@ -104,13 +109,26 @@ These structures are used in the API and can be created from both Swift and C an
 
 ---
 
-## Window Info
+## Window / Events
 
 ```swift
-// Returns the width of the screen / device
-GetScreenWidth();
-// Returns the height of the screen / device
-GetScreenHeight();
+// Returns the size of the screen / device
+GetScreenSize() -> Vector2;
+
+// Left mouse click or touch event
+HasTap() -> Bool;
+
+// Left mouse double click or double touch event
+HasDoubleTap() -> Bool;
+
+// Left mouse is down or ongoing touch event
+HasTouch() -> Bool;
+
+// Left mouse up or touch up event
+HasTouchEnded() -> Bool;
+
+// Current mouse or touch event position in window / device
+GetTouchPos() -> Vector2;
 ```
 
 ## Drawing
